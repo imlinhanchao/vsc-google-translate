@@ -89,6 +89,13 @@ async function get(url) {
     return rsp;
 }
 
+function getCandidate(tran) {
+    let words = []
+    if(tran[1]) words = words.concat(tran[1][0][1])
+    if(tran[5]) words = words.concat(tran[5][0][2].map(t => t[0]))
+    return words;
+}
+
 module.exports = async (word) => {
     let lang = {
         from: 'en',
@@ -103,12 +110,16 @@ module.exports = async (word) => {
         }
     }
 
-    let url = `https://translate.google.cn/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=t&tk=${tk(word, tkk)}&q=${urlencode(word, 'utf-8')}`
+    let url = `https://translate.google.cn/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${urlencode(word, 'utf-8')}`
 
     try {
         let rsp = await get(url);
         let tranWord = JSON.parse(rsp.body);
-        return tranWord[0][0][0];
+        let candidate = getCandidate(tranWord);
+        return {
+            word: tranWord[0][0][0],
+            candidate
+        };
     } catch (err) {
         throw 'Translate failed, please check your network.';
     }        
