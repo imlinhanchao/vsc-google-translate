@@ -10,7 +10,7 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.translates"
+        "onCommand:translates.translates"
     ],
     "main": "./src/extension",
     "contributes": {
@@ -19,7 +19,23 @@
                 "command": "translates.translates",
                 "title": "Translates"
             }
-        ]
+        ],
+        "keybindings": [{
+            "command": "translates.translates",
+            "key": "ctrl+shift+t",
+            "mac": "cmd+shift+t",
+            "when": "editorTextFocus"
+        }, {
+            "command": "translates.clipboard",
+            "key": "alt+t",
+            "mac": "options+t",
+            "when": "editorTextFocus"
+        }, {
+            "command": "translates.candidate",
+            "key": "shift+alt+t",
+            "mac": "shift+options+t",
+            "when": "editorTextFocus"
+        }]
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
