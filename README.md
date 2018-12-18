@@ -1,6 +1,6 @@
 # Google Translate Extension
 
-基于 [Google 翻译(cn)](https://translate.google.cn)，无法科学上网，无需 API Key 的翻译扩展。
+基于 [Google 翻译(cn)](https://translate.google.cn)，无需科学上网，无需 API Key 的翻译扩展。
 
 ## Features
 
@@ -14,12 +14,14 @@
 
 ### 1.0.0
 
-1. 支援 Google 翻译；
+1. 支援 Google 翻译中英互译；
 
 -----------------------------------------------------------------------------------------------------------
 
 ### For more information
 
 * [Github](https://github.com/imlinhanchao/vsc-google-translate)
+* [VSCode Market](https://marketplace.visualstudio.com/items?itemName=hancel.google-translate)
+* Icon made by [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect) from www.flaticon.com 
 
 **Enjoy!**

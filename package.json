@@ -1,11 +1,16 @@
 {
     "name": "google-translate",
-    "displayName": "google-translate",
+    "publisher": "hancel",
+    "displayName": "Google Translate",
     "description": "A extension to translate something between english and chinese by google.",
-    "version": "0.0.1",
+    "keywords": ["Google", "Translate", "english", "chinese"],
+    "version": "1.0.0",
+    "repository": "https://github.com/imlinhanchao/vsc-google-translate",
     "engines": {
         "vscode": "^1.30.0"
     },
+    "icon": "asserts/icon.png",
+    "license": "MIT",
     "categories": [
         "Other"
     ],
