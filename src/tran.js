@@ -7,17 +7,35 @@ const urlencode = require('urlencode');
 const iconv = require('iconv-lite');
 
 let tkk = '429175.1243284773'
-let Jo = null
 
-async function getTkk() {
+async function get(url) {
+    let options = {
+        url: url,
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36'
+        }
+    };
+
+    let rsp = await request.get(options);
+
+    if (rsp.statusCode >= 400) {
+        throw 'Translate failed, please check your network.';
+    }
+
+    iconv.decode(rsp.body, 'utf-8')
+
+    return rsp;
+}
+
+// Get Tkk value
+(async () => {
     let url = 'https://translate.google.cn/';
     let rsp = await get(url);
     let tkkMat = rsp.body.match(/tkk:'([\d.]+)'/);
-    tkk = tkkMat[1];
-}
+    tkk = tkkMat ? tkkMat[1] : tkk;
+})()
 
-getTkk();
-
+// translate_m_zh-CN.js:formatted Line 8084
 function Ho (a) {
     return function() {
         return a
@@ -34,18 +52,11 @@ function Io(a, b) {
     return a
 }
 
+// translate_m_zh-CN.js:formatted Line 8099 fun Ko
 function tk(a, tkk) {
-    if (null !== Jo)
-        var b = Jo;
-    else {
-        b = Ho(String.fromCharCode(84));
-        var c = Ho(String.fromCharCode(75));
-        b = [b(), b()];
-        b[1] = c();
-        b = (Jo = tkk || "") || ""
-    }
+    var b = tkk || ""
     var d = Ho(String.fromCharCode(116));
-    c = Ho(String.fromCharCode(107));
+    var c = Ho(String.fromCharCode(107));
     d = [d(), d()];
     d[1] = c();
     c = "&" + d.join("") + "=";
@@ -69,25 +80,6 @@ function tk(a, tkk) {
     a %= 1E6;
     return c + (a.toString() + "." + (a ^ b))
 };
-
-async function get(url) {
-    let options = {
-        url: url,
-        headers: {
-            'User-Agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36'
-        }
-    };
-
-    let rsp = await request.get(options);
-
-    if (rsp.statusCode >= 400) {
-        throw 'Translate failed, please check your network.';
-    }
-
-    iconv.decode(rsp.body, 'utf-8')
-
-    return rsp;
-}
 
 function getCandidate(tran) {
     let words = []
