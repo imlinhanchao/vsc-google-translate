@@ -7,11 +7,30 @@
 包含以下功能：
 
 1. 自动中英互译 `Ctrl+Shift+T`；
-2. 复制翻译结果到剪切板 `Alt+T`；
+2. 复制翻译结果到剪贴板 `Alt+T`；
 3. 候选词选择 `Shift+Alt+T`；
+
+## Notice
+
+Linux 用户须安装 xsel，用于支援剪贴板功能。（感谢 hawk hu 的提醒）
+
+Ubuntu：
+```bash
+sudo apt install xsel
+```
+
+CentOS
+```bash
+sudo yum install epel-release.noarch
+sudo yum install xsel
+```
 
 ## Release Notes
 
+### 1.0.2
+
+1. 加入 Linux 注意事项说明；
+   
 ### 1.0.1
 
 1. 加入快捷键说明；
