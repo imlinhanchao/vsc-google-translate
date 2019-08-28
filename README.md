@@ -27,6 +27,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.0.3
+1. 加入根据所选文字语言自动翻译为中文；
+  
 ### 1.0.2
 
 1. 加入 Linux 注意事项说明；

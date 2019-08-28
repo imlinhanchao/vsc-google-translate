@@ -90,16 +90,16 @@ function getCandidate(tran) {
 
 module.exports = async (word) => {
     let lang = {
-        from: 'en',
-        to: 'zh-CN'
+        from: 'auto',
+        to: 'zh'
     };
 
-    let matEng = word.match(/[a-zA-Z]/g);
-    if (!matEng || matEng.length < word.length / 2) {
+    let matChinese = word.match(/[\u4e00-\u9fa5]/g);
+    if (matChinese && matChinese.length > word.length / 2) {
         lang = {
             to: 'en',
-            from: 'zh-CN'
-        }
+            from: 'auto'
+        };
     }
 
     let url = `https://translate.google.cn/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${urlencode(word, 'utf-8')}`
