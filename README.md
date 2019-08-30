@@ -6,13 +6,16 @@
 
 包含以下功能：
 
-1. 自动中英互译 `Ctrl+Shift+T`；
-2. 复制翻译结果到剪贴板 `Alt+T`；
-3. 候选词选择 `Shift+Alt+T`；
+1. 自动中英互译 `Ctrl + Shift + T`；
+2. 翻译并复制结果到剪贴板 `Alt + T`；
+3. 展开候选词选择 `Shift + Alt + T`；
+3. 翻译并替换 `Ctrl + Alt + T`；
+
+> Tips: 快捷键修改可以到 VSCode 的键盘快捷方式 ( `Ctrl + K Ctrl + S` ) 修改。
 
 ## Notice
 
-Linux 用户须安装 xsel，用于支援剪贴板功能。（感谢 hawk hu 的提醒）
+Linux 用户须安装 xsel，用于支援剪贴板功能。（感谢 [hawk hu](https://github.com/hawkhu) 的提醒）
 
 Ubuntu：
 ```bash
@@ -26,6 +29,10 @@ sudo yum install xsel
 ```
 
 ## Release Notes
+
+### 1.0.4
+1. 加入将所选文字语言翻译直接替换的指令。
+2. 更新复制到剪切板和候选词功能，无需在翻译后才能执行。
 
 ### 1.0.3
 1. 加入根据所选文字语言自动翻译为中文；

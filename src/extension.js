@@ -61,20 +61,68 @@ function activate(context) {
 
     context.subscriptions.push(disposable);
 
-    let copyDisposable = vscode.commands.registerCommand('translates.clipboard', function () {
-        clipboardy.writeSync(__currentWord.word);
-        vscode.window.showInformationMessage(`${__currentWord.word} was copy in clipboard.`);
+    let copyDisposable = vscode.commands.registerCommand('translates.clipboard', async function () {
+        let editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return; // No open text editor
+        }
+        let selection = editor.selection;
+        let text = editor.document.getText(selection), word = '';
+
+        if (__currentWord.text == '') {
+            let trans = await tran(text);
+            word = trans.word;
+        } else {
+            word = __currentWord.word;
+        }
+        
+        clipboardy.writeSync(word);
+        vscode.window.showInformationMessage((await tran(`The translation results have been placed on the clipboard.`)).word);
     })
     context.subscriptions.push(copyDisposable);
+    
+    let replaceDisposable = vscode.commands.registerCommand('translates.replace', async function () {
+        let editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return; // No open text editor
+        }
+        let selection = editor.selection;
+        let text = editor.document.getText(selection), word = '';
+
+        if (__currentWord.text == '' || __currentWord.text != text) {
+            let trans = await tran(text);
+            word = trans.word;
+        } else {
+            word = __currentWord.word;
+        }
+
+        editor.edit(editBuilder => {
+            editBuilder.replace(selection, word);
+        })
+        
+        vscode.window.showInformationMessage(`${text} => ${word}.`);
+    })
+    context.subscriptions.push(replaceDisposable);
 
     let canDisposable = vscode.commands.registerCommand('translates.candidate', async function () {
+        let editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return; // No open text editor
+        }
+        let selection = editor.selection;
+        let text = editor.document.getText(selection);
+
+        if (__currentWord.text == '' || __currentWord.text != text) {
+            __currentWord = await tran(text);
+        }
+
         let items = [];
         __currentWord.candidate.forEach(c => items.push({label: c}))
         const chosen = await vscode.window.showQuickPick(items);
         if (chosen) {
             __currentWord.word = chosen.label
             clipboardy.writeSync(__currentWord.word);
-            vscode.window.showInformationMessage(`${__currentWord.word} was copy in clipboard.`);
+            vscode.window.showInformationMessage((await tran(`The translation results have been placed on the clipboard.`)).word);
             __wordBarItem.text = `${__currentWord.text}: ${__currentWord.word}`;
             __candidateBarItem.show()
         }

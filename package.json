@@ -15,7 +15,10 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:translates.translates"
+        "onCommand:translates.translates",
+        "onCommand:translates.clipboard",
+        "onCommand:translates.replace",
+        "onCommand:translates.candidate"
     ],
     "main": "./src/extension",
     "contributes": {
@@ -23,6 +26,18 @@
             {
                 "command": "translates.translates",
                 "title": "Translates"
+            },
+            {
+                "command": "translates.clipboard",
+                "title": "Translate and Copy"
+            },
+            {
+                "command": "translates.replace",
+                "title": "Translate and Replace"
+            },
+            {
+                "command": "translates.candidate",
+                "title": "Translate Candidate Result"
             }
         ],
         "keybindings": [{
@@ -34,6 +49,11 @@
             "command": "translates.clipboard",
             "key": "alt+t",
             "mac": "options+t",
+            "when": "editorTextFocus"
+        }, {
+            "command": "translates.replace",
+            "key": "alt+ctrl+t",
+            "mac": "options+cmd+t",
             "when": "editorTextFocus"
         }, {
             "command": "translates.candidate",
