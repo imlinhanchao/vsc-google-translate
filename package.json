@@ -2,9 +2,9 @@
     "name": "google-translate",
     "publisher": "hancel",
     "displayName": "Google Translate",
-    "description": "A extension to translate something between english and chinese by google.",
+    "description": "A extension uses to translate words between english and chinese by google.",
     "keywords": ["Google", "Translate", "english", "chinese"],
-    "version": "1.0.4",
+    "version": "1.0.5",
     "repository": "https://github.com/imlinhanchao/vsc-google-translate",
     "engines": {
         "vscode": "^1.30.0"
@@ -15,13 +15,16 @@
         "Other"
     ],
     "activationEvents": [
+        "workspaceContains:*.*",
         "onCommand:translates.translates",
         "onCommand:translates.clipboard",
         "onCommand:translates.replace",
+        "onCommand:translates.hover",
         "onCommand:translates.candidate"
     ],
     "main": "./src/extension",
     "contributes": {
+        "hoverProvider" : "true",
         "commands": [
             {
                 "command": "translates.translates",
@@ -38,6 +41,10 @@
             {
                 "command": "translates.candidate",
                 "title": "Translate Candidate Result"
+            },
+            {
+                "command": "translates.hover",
+                "title": "Switch Hover Translation"
             }
         ],
         "keybindings": [{
@@ -59,6 +66,11 @@
             "command": "translates.candidate",
             "key": "shift+alt+t",
             "mac": "shift+options+t",
+            "when": "editorTextFocus"
+        }, {
+            "command": "translates.hover",
+            "key": "ctrl+k alt+t",
+            "mac": "cmd+k options+t",
             "when": "editorTextFocus"
         }]
     },

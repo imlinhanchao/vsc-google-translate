@@ -109,6 +109,8 @@ module.exports = async (word) => {
         let tranWord = JSON.parse(rsp.body);
         let candidate = getCandidate(tranWord);
         return {
+            lang,
+            text: word,
             word: tranWord[0][0][0],
             candidate
         };

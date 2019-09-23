@@ -16,30 +16,73 @@ function activate(context) {
 
     let __wordBarItem = null;
     let __candidateBarItem = null;
+    let __hoverBarItem = null;
+
+    let selectionText = () => {
+        let editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return ''; // No open text editor
+        }
+
+        let selection = editor.selection;
+        return editor.document.getText(selection);
+    }
 
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "google-translate" is now active!');
+    console.log('Congratulations, your extension "vsc-google-translate" is now active!');
+
+    let hoverRegister = false;
+    let hoverOpen = false;
+
+    let registerHover = () => {
+        if (hoverRegister) return;
+        hoverRegister = true;
+        context.subscriptions.push(vscode.languages.registerHoverProvider({scheme: 'file'}, {
+            provideHover: async (document, position, token) => {
+                let editor = vscode.window.activeTextEditor;
+                if (!editor || !hoverOpen) {
+                    return; // No open text editor
+                }
+        
+                let selection = editor.selection;
+
+                let line = { 
+                    begin: Math.min(selection.anchor.line, selection.active.line),
+                    end: Math.max(selection.anchor.line, selection.active.line)
+                }, character = {
+                    begin: Math.min(selection.anchor.character, selection.active.character),
+                    end: Math.max(selection.anchor.character, selection.active.character)
+                };
+    
+                if (line.begin > position.line || character.begin > position.character) return;
+                if (line.end < position.line || character.end < position.character) return;
+    
+                let trans = await tran(editor.document.getText(selection));
+                let word = trans.word    
+                let pre = `**[Google Translate](https://translate.google.cn/?sl=auto&tl=${trans.lang.to}&text=${escape(trans.text)})**\n\n`;
+                return new vscode.Hover(pre + word);
+            }
+        }));
+        
+        __hoverBarItem =  __hoverBarItem || vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right);
+        __hoverBarItem.show();
+        __hoverBarItem.text = hoverOpen ? `悬停翻译 : 开启` : `悬停翻译 : 关闭`;
+        __hoverBarItem.command = 'translates.hover';
+    };
+
+    registerHover();
 
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
     let disposable = vscode.commands.registerCommand('translates.translates', async function () {
         // The code you place here will be executed every time your command is executed
-
-        // Display a message box to the user
-        let editor = vscode.window.activeTextEditor;
-        if (!editor) {
-            return; // No open text editor
-        }
-
-        let selection = editor.selection;
-        let text = editor.document.getText(selection);
+        let text = selectionText();
+        if (text == '') return;
 
         let trans = await tran(text);
-
         let word = trans.word
-
         let candidate = trans.candidate
 
         __currentWord = { word, text, candidate };
@@ -53,21 +96,23 @@ function activate(context) {
         __wordBarItem.command = 'translates.clipboard'
 
         __candidateBarItem =  __candidateBarItem || vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
-        candidate.length ? __candidateBarItem.show() : __candidateBarItem.hide()
+        candidate.length ? __candidateBarItem.show() : __candidateBarItem.hide();
         __candidateBarItem.text = `$(triangle-right)`
         __candidateBarItem.command = 'translates.candidate'
-
    });
 
     context.subscriptions.push(disposable);
 
+    let hoverDisposable = vscode.commands.registerCommand('translates.hover', function () {
+        hoverOpen = !hoverOpen;
+        __hoverBarItem.text = hoverOpen ? `悬停翻译 : 开启` : `悬停翻译 : 关闭`;
+    });
+
+    context.subscriptions.push(hoverDisposable);
+
     let copyDisposable = vscode.commands.registerCommand('translates.clipboard', async function () {
-        let editor = vscode.window.activeTextEditor;
-        if (!editor) {
-            return; // No open text editor
-        }
-        let selection = editor.selection;
-        let text = editor.document.getText(selection), word = '';
+        let text = selectionText(), word = '';
+        if (text == '') return;
 
         if (__currentWord.text == '') {
             let trans = await tran(text);
@@ -105,12 +150,8 @@ function activate(context) {
     context.subscriptions.push(replaceDisposable);
 
     let canDisposable = vscode.commands.registerCommand('translates.candidate', async function () {
-        let editor = vscode.window.activeTextEditor;
-        if (!editor) {
-            return; // No open text editor
-        }
-        let selection = editor.selection;
-        let text = editor.document.getText(selection);
+        let text = selectionText();
+        if (text == '') return;
 
         if (__currentWord.text == '' || __currentWord.text != text) {
             __currentWord = await tran(text);
