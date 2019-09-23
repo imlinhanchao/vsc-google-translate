@@ -7,9 +7,16 @@
 包含以下功能：
 
 1. 自动中英互译 `Ctrl + Shift + T`；
+   ![自动中英互译](./asserts/translates.gif)
 2. 翻译并复制结果到剪贴板 `Alt + T`；
+   ![翻译并复制结果到剪贴板](./asserts/clipboard.gif)
 3. 展开候选词选择 `Shift + Alt + T`；
-3. 翻译并替换 `Ctrl + Alt + T`；
+   ![展开候选词选择](./asserts/candidate.gif)   
+4. 翻译并替换 `Ctrl + Alt + T`；
+   ![翻译并替换](./asserts/replace.gif)
+5. 悬停翻译选中文字；
+   ![悬停翻译选中文字](./asserts/hover.gif)
+   
 
 > Tips: 快捷键修改可以到 VSCode 的键盘快捷方式 ( `Ctrl + K Ctrl + S` ) 修改。
 
@@ -29,6 +36,9 @@ sudo yum install xsel
 ```
 
 ## Release Notes
+
+### 1.0.5
+1. 加入悬停显示选中文本翻译结果功能。
 
 ### 1.0.4
 1. 加入将所选文字语言翻译直接替换的指令。

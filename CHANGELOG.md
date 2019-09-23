@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.0.5] - 2019-09-23
+- 加入悬停显示选中文本翻译结果功能。
+
 ## [1.0.4] - 2019-08-30
 - 加入将所选文字语言翻译直接替换的指令。
 - 更新复制到剪切板和候选词功能，无需在翻译后才能执行。
