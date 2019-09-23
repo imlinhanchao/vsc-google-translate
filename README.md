@@ -53,7 +53,7 @@ sudo yum install xsel
 
 ### For more information
 
-* [Github](https://github.com/imlinhanchao/vsc-google-translate)
+* [GitHub](https://github.com/imlinhanchao/vsc-google-translate)
 * [VSCode Market](https://marketplace.visualstudio.com/items?itemName=hancel.google-translate)
 * Icon made by [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect) from www.flaticon.com 
 
