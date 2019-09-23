@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.0.6] - 2019-09-23
+- 修复翻译一段文字时，只显示第一句的翻译结果的问题。
+  
 ## [1.0.5] - 2019-09-23
 - 加入悬停显示选中文本翻译结果功能。
 

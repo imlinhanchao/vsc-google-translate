@@ -108,10 +108,11 @@ module.exports = async (word) => {
         let rsp = await get(url);
         let tranWord = JSON.parse(rsp.body);
         let candidate = getCandidate(tranWord);
+        tranWord[0].pop();
         return {
             lang,
             text: word,
-            word: tranWord[0][0][0],
+            word: tranWord[0].map(t => t[0]).join(''),
             candidate
         };
     } catch (err) {

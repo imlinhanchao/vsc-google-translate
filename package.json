@@ -4,7 +4,7 @@
     "displayName": "Google Translate",
     "description": "A extension uses to translate words between english and chinese by google.",
     "keywords": ["Google", "Translate", "english", "chinese"],
-    "version": "1.0.5",
+    "version": "1.0.6",
     "repository": "https://github.com/imlinhanchao/vsc-google-translate",
     "engines": {
         "vscode": "^1.30.0"
