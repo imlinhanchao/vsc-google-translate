@@ -4,7 +4,7 @@
     "displayName": "Google Translate",
     "description": "A extension uses to translate words between english and chinese by google.",
     "keywords": ["Google", "Translate", "english", "chinese"],
-    "version": "1.0.6",
+    "version": "1.0.7",
     "repository": "https://github.com/imlinhanchao/vsc-google-translate",
     "engines": {
         "vscode": "^1.30.0"
@@ -51,22 +51,22 @@
             "command": "translates.translates",
             "key": "ctrl+shift+t",
             "mac": "cmd+shift+t",
-            "when": "editorTextFocus"
+            "when": "editorHasSelection"
         }, {
             "command": "translates.clipboard",
             "key": "alt+t",
             "mac": "options+t",
-            "when": "editorTextFocus"
+            "when": "editorHasSelection"
         }, {
             "command": "translates.replace",
             "key": "alt+ctrl+t",
             "mac": "options+cmd+t",
-            "when": "editorTextFocus"
+            "when": "editorHasSelection"
         }, {
             "command": "translates.candidate",
             "key": "shift+alt+t",
             "mac": "shift+options+t",
-            "when": "editorTextFocus"
+            "when": "editorHasSelection"
         }, {
             "command": "translates.hover",
             "key": "ctrl+k alt+t",

@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.0.7] - 2019-09-25
+- 更新限定功能触发条件，避免与 VSCode 的快捷键冲突。
+
 ## [1.0.6] - 2019-09-23
 - 修复翻译一段文字时，只显示第一句的翻译结果的问题。
   
