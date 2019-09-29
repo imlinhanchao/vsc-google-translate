@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.0.8] - 2019-09-29
+- 移除 Request 和 URLEncode 依赖，改用原生模块，减少包大小。
+- 加入自动根据编辑器语言切换目标语言。
+
 ## [1.0.7] - 2019-09-25
 - 更新限定功能触发条件，避免与 VSCode 的快捷键冲突。
 

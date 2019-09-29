@@ -81,6 +81,10 @@ function activate(context) {
         let text = selectionText();
         if (text == '') return;
 
+        __wordBarItem =  __wordBarItem || vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
+        __wordBarItem.show();
+        __wordBarItem.text = `Waiting...`;
+        
         let trans = await tran(text);
         let word = trans.word
         let candidate = trans.candidate
@@ -90,8 +94,6 @@ function activate(context) {
         // Display a message box to the user
         vscode.window.showInformationMessage(`${text}: ${word}`);
 
-        __wordBarItem =  __wordBarItem || vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
-        __wordBarItem.show();
         __wordBarItem.text = `${text}: ${word}`;
         __wordBarItem.command = 'translates.clipboard'
 

@@ -3,7 +3,12 @@
     "publisher": "hancel",
     "displayName": "Google Translate",
     "description": "A extension uses to translate words between english and chinese by google.",
-    "keywords": ["Google", "Translate", "english", "chinese"],
+    "keywords": [
+        "Google",
+        "Translate",
+        "english",
+        "chinese"
+    ],
     "version": "1.0.7",
     "repository": "https://github.com/imlinhanchao/vsc-google-translate",
     "engines": {
@@ -24,7 +29,7 @@
     ],
     "main": "./src/extension",
     "contributes": {
-        "hoverProvider" : "true",
+        "hoverProvider": "true",
         "commands": [
             {
                 "command": "translates.translates",
@@ -47,32 +52,38 @@
                 "title": "Switch Hover Translation"
             }
         ],
-        "keybindings": [{
-            "command": "translates.translates",
-            "key": "ctrl+shift+t",
-            "mac": "cmd+shift+t",
-            "when": "editorHasSelection"
-        }, {
-            "command": "translates.clipboard",
-            "key": "alt+t",
-            "mac": "options+t",
-            "when": "editorHasSelection"
-        }, {
-            "command": "translates.replace",
-            "key": "alt+ctrl+t",
-            "mac": "options+cmd+t",
-            "when": "editorHasSelection"
-        }, {
-            "command": "translates.candidate",
-            "key": "shift+alt+t",
-            "mac": "shift+options+t",
-            "when": "editorHasSelection"
-        }, {
-            "command": "translates.hover",
-            "key": "ctrl+k alt+t",
-            "mac": "cmd+k options+t",
-            "when": "editorTextFocus"
-        }]
+        "keybindings": [
+            {
+                "command": "translates.translates",
+                "key": "ctrl+shift+t",
+                "mac": "cmd+shift+t",
+                "when": "editorHasSelection"
+            },
+            {
+                "command": "translates.clipboard",
+                "key": "alt+t",
+                "mac": "options+t",
+                "when": "editorHasSelection"
+            },
+            {
+                "command": "translates.replace",
+                "key": "alt+ctrl+t",
+                "mac": "options+cmd+t",
+                "when": "editorHasSelection"
+            },
+            {
+                "command": "translates.candidate",
+                "key": "shift+alt+t",
+                "mac": "shift+options+t",
+                "when": "editorHasSelection"
+            },
+            {
+                "command": "translates.hover",
+                "key": "ctrl+k alt+t",
+                "mac": "cmd+k options+t",
+                "when": "editorTextFocus"
+            }
+        ]
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
@@ -86,10 +97,6 @@
         "@types/mocha": "^2.2.42"
     },
     "dependencies": {
-        "clipboardy": "^1.2.3",
-        "iconv-lite": "^0.4.24",
-        "request": "^2.88.0",
-        "request-promise": "^4.2.2",
-        "urlencode": "^1.1.0"
+        "clipboardy": "^1.2.3"
     }
 }

@@ -1,37 +1,41 @@
-const request = require('request-promise').defaults({
-    simple: false,
-    resolveWithFullResponse: true,
-    // proxy:'http://127.0.0.1:8888'
-});
-const urlencode = require('urlencode');
-const iconv = require('iconv-lite');
+const vscode = require('vscode');
+const http = require('https');
 
 let tkk = '429175.1243284773'
 
-async function get(url) {
-    let options = {
-        url: url,
-        headers: {
-            'User-Agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36'
-        }
-    };
+function get(url) {
+    return new Promise(function (resolve, reject){
+        http.get(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36'
+            }
+        }, function(rsp){
+            let body = '';
 
-    let rsp = await request.get(options);
+            if (rsp.statusCode >= 400) {
+                throw 'Translate failed, please check your network.';
+            }
 
-    if (rsp.statusCode >= 400) {
-        throw 'Translate failed, please check your network.';
-    }
+            rsp.on('data', function(data) {
+                body += data;
+            });
 
-    iconv.decode(rsp.body, 'utf-8')
+            rsp.on('end', function() {
+                resolve(body);
+            });
 
-    return rsp;
+            rsp.on('timeout', function() {
+                reject(new Error('NetWork Connect Timeout.'));
+            })
+        });
+    });
 }
 
 // Get Tkk value
 (async () => {
     let url = 'https://translate.google.cn/';
-    let rsp = await get(url);
-    let tkkMat = rsp.body.match(/tkk:'([\d.]+)'/);
+    let body = await get(url);
+    let tkkMat = body.match(/tkk:'([\d.]+)'/);
     tkk = tkkMat ? tkkMat[1] : tkk;
 })()
 
@@ -88,25 +92,12 @@ function getCandidate(tran) {
     return words;
 }
 
-module.exports = async (word) => {
-    let lang = {
-        from: 'auto',
-        to: 'zh'
-    };
-
-    let matChinese = word.match(/[\u4e00-\u9fa5]/g);
-    if (matChinese && matChinese.length > word.length / 2) {
-        lang = {
-            to: 'en',
-            from: 'auto'
-        };
-    }
-
-    let url = `https://translate.google.cn/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${urlencode(word, 'utf-8')}`
+async function translate(word, lang) {
+    let url = `https://translate.google.cn/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${encodeURIComponent(word)}`
 
     try {
-        let rsp = await get(url);
-        let tranWord = JSON.parse(rsp.body);
+        let body = await get(url);
+        let tranWord = JSON.parse(body);
         let candidate = getCandidate(tranWord);
         tranWord[0].pop();
         return {
@@ -117,5 +108,19 @@ module.exports = async (word) => {
         };
     } catch (err) {
         throw 'Translate failed, please check your network.';
-    }        
+    }      
+}
+
+module.exports = async (word) => {
+    let lang = {
+        from: 'auto',
+        to: vscode.env.language.indexOf('en') == 0 ? 'zh' : vscode.env.language
+    };
+
+    let tran = await translate(word, lang);
+    if (tran.word.replace(/\s/g, '') == word.replace(/\s/g, '')) {
+        lang.to = 'en';
+        tran = await translate(word, lang);
+    }
+    return tran;
 };
