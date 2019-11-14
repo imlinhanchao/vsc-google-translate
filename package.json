@@ -9,7 +9,7 @@
         "english",
         "chinese"
     ],
-    "version": "1.0.8",
+    "version": "1.0.9",
     "repository": "https://github.com/imlinhanchao/vsc-google-translate",
     "engines": {
         "vscode": "^1.30.0"
