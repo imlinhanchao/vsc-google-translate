@@ -13,7 +13,7 @@ function get(url) {
             let body = '';
 
             if (rsp.statusCode >= 400) {
-                throw 'Translate failed, please check your network.';
+                reject(new Error(`Response Status Code was not normal: ${rsp.statusCode}.`));
             }
 
             rsp.on('data', function(data) {
@@ -107,7 +107,7 @@ async function translate(word, lang) {
             candidate
         };
     } catch (err) {
-        throw 'Translate failed, please check your network.';
+        throw new Error(`Translate failed, Error message: "${err.message}". Please post an issues for me.`);
     }      
 }
 

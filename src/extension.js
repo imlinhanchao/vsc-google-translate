@@ -58,10 +58,14 @@ function activate(context) {
                 if (line.begin > position.line || character.begin > position.character) return;
                 if (line.end < position.line || character.end < position.character) return;
     
-                let trans = await tran(editor.document.getText(selection));
-                let word = trans.word    
-                let pre = `**[Google Translate](https://translate.google.cn/?sl=auto&tl=${trans.lang.to}&text=${escape(trans.text)})**\n\n`;
-                return new vscode.Hover(pre + word);
+                try {
+                    let trans = await tran(editor.document.getText(selection));
+                    let word = trans.word    
+                    let pre = `**[Google Translate](https://translate.google.cn/?sl=auto&tl=${trans.lang.to}&text=${escape(trans.text)})**\n\n`;
+                    return new vscode.Hover(pre + word);
+                } catch (error) {
+                    return new vscode.Hover('**[Error](https://github.com/imlinhanchao/vsc-google-translate/issues)**\n\n' + error.message);
+                }
             }
         }));
         
@@ -84,10 +88,16 @@ function activate(context) {
         __wordBarItem =  __wordBarItem || vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
         __wordBarItem.show();
         __wordBarItem.text = `Waiting...`;
-        
-        let trans = await tran(text);
-        let word = trans.word
-        let candidate = trans.candidate
+
+        let word = '翻译失败...';
+        let candidate = [];
+        try {
+            let trans = await tran(text);
+            word = trans.word
+            candidate = trans.candidate
+        } catch (error) {
+            return vscode.window.showInformationMessage(error.message);
+        }
 
         __currentWord = { word, text, candidate };
 
@@ -116,15 +126,18 @@ function activate(context) {
         let text = selectionText(), word = '';
         if (text == '') return;
 
-        if (__currentWord.text == '') {
-            let trans = await tran(text);
-            word = trans.word;
-        } else {
-            word = __currentWord.word;
+        try {
+            if (__currentWord.text == '') {
+                let trans = await tran(text);
+                word = trans.word;
+            } else {
+                word = __currentWord.word;
+            }        
+            clipboardy.writeSync(word);
+            vscode.window.showInformationMessage((await tran(`The translation results have been placed on the clipboard.`)).word);
+        } catch (error) {
+            return vscode.window.showInformationMessage(error.message);
         }
-        
-        clipboardy.writeSync(word);
-        vscode.window.showInformationMessage((await tran(`The translation results have been placed on the clipboard.`)).word);
     })
     context.subscriptions.push(copyDisposable);
     
@@ -136,18 +149,22 @@ function activate(context) {
         let selection = editor.selection;
         let text = editor.document.getText(selection), word = '';
 
-        if (__currentWord.text == '' || __currentWord.text != text) {
-            let trans = await tran(text);
-            word = trans.word;
-        } else {
-            word = __currentWord.word;
-        }
+        try {
+            if (__currentWord.text == '' || __currentWord.text != text) {
+                let trans = await tran(text);
+                word = trans.word;
+            } else {
+                word = __currentWord.word;
+            }
 
-        editor.edit(editBuilder => {
-            editBuilder.replace(selection, word);
-        })
-        
-        vscode.window.showInformationMessage(`${text} => ${word}.`);
+            editor.edit(editBuilder => {
+                editBuilder.replace(selection, word);
+            })
+            
+            vscode.window.showInformationMessage(`${text} => ${word}.`);            
+        } catch (error) {
+            return vscode.window.showInformationMessage(error.message);
+        }
     })
     context.subscriptions.push(replaceDisposable);
 
@@ -155,19 +172,23 @@ function activate(context) {
         let text = selectionText();
         if (text == '') return;
 
-        if (__currentWord.text == '' || __currentWord.text != text) {
-            __currentWord = await tran(text);
-        }
+        try {
+            if (__currentWord.text == '' || __currentWord.text != text) {
+                __currentWord = await tran(text);
+            }
 
-        let items = [];
-        __currentWord.candidate.forEach(c => items.push({label: c}))
-        const chosen = await vscode.window.showQuickPick(items);
-        if (chosen) {
-            __currentWord.word = chosen.label
-            clipboardy.writeSync(__currentWord.word);
-            vscode.window.showInformationMessage((await tran(`The translation results have been placed on the clipboard.`)).word);
-            __wordBarItem.text = `${__currentWord.text}: ${__currentWord.word}`;
-            __candidateBarItem.show()
+            let items = [];
+            __currentWord.candidate.forEach(c => items.push({label: c}))
+            const chosen = await vscode.window.showQuickPick(items);
+            if (chosen) {
+                __currentWord.word = chosen.label
+                clipboardy.writeSync(__currentWord.word);
+                vscode.window.showInformationMessage((await tran(`The translation results have been placed on the clipboard.`)).word);
+                __wordBarItem.text = `${__currentWord.text}: ${__currentWord.word}`;
+                __candidateBarItem.show()
+            }            
+        } catch (error) {
+            return vscode.window.showInformationMessage(error.message);
         }
     })
 
