@@ -37,6 +37,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.0.10
+1. 更新请求库为 got, 避免一些兼容性问题。
+
 ### 1.0.9
 1. 加入内部错误提示，方便用户反馈 Issue。
 

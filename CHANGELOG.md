@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.0.10] - 2019-11-18
+- 更新请求库为 got, 避免一些兼容性问题。
+
 ## [1.0.9] - 2019-11-14
 - 加入内部错误提示，方便用户反馈 Issue。
   
