@@ -1,41 +1,14 @@
 const vscode = require('vscode');
-const http = require('https');
+const got = require('got');
 
-let tkk = '429175.1243284773'
-
-function get(url) {
-    return new Promise(function (resolve, reject){
-        http.get(url, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36'
-            }
-        }, function(rsp){
-            let body = '';
-
-            if (rsp.statusCode >= 400) {
-                reject(new Error(`Response Status Code was not normal: ${rsp.statusCode}.`));
-            }
-
-            rsp.on('data', function(data) {
-                body += data;
-            });
-
-            rsp.on('end', function() {
-                resolve(body);
-            });
-
-            rsp.on('timeout', function() {
-                reject(new Error('NetWork Connect Timeout.'));
-            })
-        });
-    });
-}
+let tkk = '429175.1243284773';
 
 // Get Tkk value
 (async () => {
     let url = 'https://translate.google.cn/';
-    let body = await get(url);
-    let tkkMat = body.match(/tkk:'([\d.]+)'/);
+    let req = await got.get(url);
+    let body = req.body;
+    let tkkMat = body.match && body.match(/tkk:'([\d.]+)'/);
     tkk = tkkMat ? tkkMat[1] : tkk;
 })()
 
@@ -96,8 +69,13 @@ async function translate(word, lang) {
     let url = `https://translate.google.cn/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${encodeURIComponent(word)}`
 
     try {
-        let body = await get(url);
-        let tranWord = JSON.parse(body);
+        let req = await got.get(url, {
+            json: true,
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36'
+            }
+        });
+        let tranWord = req.body;
         let candidate = getCandidate(tranWord);
         tranWord[0].pop();
         return {
