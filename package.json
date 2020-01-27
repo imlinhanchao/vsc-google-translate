@@ -49,7 +49,11 @@
             },
             {
                 "command": "translates.hover",
-                "title": "Switch Hover Translation"
+                "title": "Switch Hover Translation",
+                "icon": {
+                    "light": "./asserts/translate.svg",
+                    "dark": "./asserts/translate-dark.svg"
+                }
             }
         ],
         "keybindings": [
@@ -83,7 +87,15 @@
                 "mac": "cmd+k options+t",
                 "when": "editorTextFocus"
             }
-        ]
+        ],
+        "menus": {
+            "editor/title": [{
+                "when": "editorFocus",
+                "command": "translates.hover",
+                "alt": "translates.hover",
+                "group": "navigation"
+            }]
+        }
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",

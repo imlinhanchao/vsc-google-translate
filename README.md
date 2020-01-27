@@ -82,5 +82,6 @@ sudo yum install xsel
 * [GitHub](https://github.com/imlinhanchao/vsc-google-translate)
 * [VSCode Market](https://marketplace.visualstudio.com/items?itemName=hancel.google-translate)
 * Icon made by [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect) from www.flaticon.com 
+* Icons made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 
 **Enjoy!**
