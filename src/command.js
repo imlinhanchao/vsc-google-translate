@@ -85,7 +85,7 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
     barItem.word.show();
     barItem.word.text = `Waiting...`;
 
-    let word = '翻译失败...';
+    let word = 'Translate Failed...';
     let candidate = [];
     try {
         let trans = await tranlate(text);
@@ -97,9 +97,11 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
 
     currentWord = { word, text, candidate };
 
-    // Display a message box to the user
     vscode.window.showInformationMessage(`${text}: ${word}`);
 
+    barItem.word.tooltip = word;
+    if(text.length > 10) text = text.slice(0, 10) + '... '
+    if(word.length > 10) word = word.slice(0, 10) + '...'
     barItem.word.text = `${text}: ${word}`;
     barItem.word.command = 'translates.clipboard'
 
