@@ -2,6 +2,7 @@ const vscode = require('vscode');
 const got = require('got');
 
 let tkk = '429175.1243284773';
+let config = {};
 
 // Get Tkk value
 (async () => {
@@ -22,22 +23,22 @@ function Ho (a) {
 function Io(a, b) {
     for (var c = 0; c < b.length - 2; c += 3) {
         var d = b.charAt(c + 2);
-        d = "a" <= d ? d.charCodeAt(0) - 87 : Number(d);
-        d = "+" == b.charAt(c + 1) ? a >>> d : a << d;
-        a = "+" == b.charAt(c) ? a + d & 4294967295 : a ^ d
+        d = 'a' <= d ? d.charCodeAt(0) - 87 : Number(d);
+        d = '+' == b.charAt(c + 1) ? a >>> d : a << d;
+        a = '+' == b.charAt(c) ? a + d & 4294967295 : a ^ d
     }
     return a
 }
 
 // translate_m_zh-CN.js:formatted Line 8099 fun Ko
 function tk(a, tkk) {
-    var b = tkk || ""
+    var b = tkk || ''
     var d = Ho(String.fromCharCode(116));
     var c = Ho(String.fromCharCode(107));
     d = [d(), d()];
     d[1] = c();
-    c = "&" + d.join("") + "=";
-    d = b.split(".");
+    c = '&' + d.join('') + '=';
+    d = b.split('.');
     b = Number(d[0]) || 0;
     for (var e = [], f = 0, g = 0; g < a.length; g++) {
         var k = a.charCodeAt(g);
@@ -50,23 +51,29 @@ function tk(a, tkk) {
     a = b;
     for (f = 0; f < e.length; f++)
         a += e[f],
-        a = Io(a, "+-a^+6");
-    a = Io(a, "+-3^+b+-f");
+        a = Io(a, '+-a^+6');
+    a = Io(a, '+-3^+b+-f');
     a ^= Number(d[1]) || 0;
     0 > a && (a = (a & 2147483647) + 2147483648);
     a %= 1E6;
-    return c + (a.toString() + "." + (a ^ b))
+    return c + (a.toString() + '.' + (a ^ b))
 };
 
 function getCandidate(tran) {
     let words = []
-    if(tran[1]) words = words.concat(tran[1][0][1])
-    if(tran[5]) words = words.concat(tran[5][0][2].map(t => t[0]))
+    if (tran[1]) words = words.concat(tran[1][0][1])
+    if (tran[5]) {
+        let candidates = tran[5].map(tt => (tt[2] || [tt[0]]).map(t => t[0]));
+        let maxLength = Math.max(...candidates.map(c => c.length));
+        for (let i = 0; i < maxLength; i++) {
+            words.push(candidates.map(c => c[i] || c[c.length - 1]).join(''));
+        }
+    }
     return words;
 }
 
 async function translate(word, lang) {
-    let url = `https://translate.google.cn/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${encodeURIComponent(word)}`
+    let url = `${config['translate.serverDomain'].replace(/\/$/, '')}/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${encodeURIComponent(word)}`
 
     try {
         let req = await got.get(url, {
@@ -85,20 +92,44 @@ async function translate(word, lang) {
             candidate
         };
     } catch (err) {
-        throw new Error(`Translate failed, Error message: "${err.message}". Please post an issues for me.`);
+        throw new Error(`Translate failed, Error message: '${err.message}'. Please post an issues for me.`);
     }      
 }
 
+function getConfig() {
+    let keys = [
+        'switchFunctionTranslation',
+        'translate.serverDomain',
+        'translate.firstLanguage',
+        'translate.secondLanguage',
+    ];
+    let values = {};
+    keys.forEach(k => values[k] = vscode.workspace.getConfiguration().get(k))
+    return values;
+}
+
 module.exports = async (word) => {
+    config = getConfig();
     let lang = {
         from: 'auto',
-        to: vscode.env.language.indexOf('en') == 0 ? 'zh' : vscode.env.language
+        to: config['translate.firstLanguage']
     };
+
+    if (config.switchFunctionTranslation) {
+        word = word.replace(/([a-z])([A-Z])/g, "$1 $2")
+            .replace(/([_])/g, " ").replace(/=/g, ' = ')
+            .replace(/(\b)\.(\b)/g, '$1 \n{>}\n $2 ');
+    }
 
     let tran = await translate(word, lang);
     if (tran.word.replace(/\s/g, '') == word.replace(/\s/g, '')) {
-        lang.to = 'en';
-        tran = await translate(word, lang);
+        lang.to = config['translate.secondLanguage'];
+        let tranSecond = await translate(word, lang);
+        if (tranSecond.word) tran = tranSecond;
+    }
+    if (config.switchFunctionTranslation) {
+        tran.word = tran.word.replace(/\n{>}\n/g, '.');
+        tran.candidate = tran.candidate.map(c => c.replace(/{([^>]*?)>}/g, '$1\n{>}').replace(/\n{>}\n/g, '.'));
     }
     return tran;
 };

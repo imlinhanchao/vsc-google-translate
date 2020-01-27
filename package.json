@@ -49,7 +49,7 @@
             },
             {
                 "command": "translates.hover",
-                "title": "Switch Hover Translation",
+                "title": "Translation Hover Switch",
                 "icon": {
                     "light": "./asserts/translate.svg",
                     "dark": "./asserts/translate-dark.svg"
@@ -95,6 +95,31 @@
                 "alt": "translates.hover",
                 "group": "navigation"
             }]
+        },
+        "configuration": {
+            "title": "Google Translate",
+            "properties": {
+                "switchFunctionTranslation": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Switch Function Translation. For Example: There is a function named 'PostCreateReceipt'. It will change to 'Post Create Receipt' before translate. "
+                },
+                "translate.serverDomain": {
+                    "type": "string",
+                    "default": "https://translate.google.cn",
+                    "description": "You can set it to the fastest google translate domain."
+                },
+                "translate.firstLanguage": {
+                    "type": "string",
+                    "default": "zh",
+                    "description": "All language will tranlate to this language first."
+                },
+                "translate.secondLanguage": {
+                    "type": "string",
+                    "default": "en",
+                    "description": "It will be translated into this language if it's the first language."
+                }
+            }
         }
     },
     "scripts": {
