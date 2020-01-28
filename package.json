@@ -33,23 +33,23 @@
         "commands": [
             {
                 "command": "translates.translates",
-                "title": "Translates"
+                "title": "%translates.title%"
             },
             {
                 "command": "translates.clipboard",
-                "title": "Translate and Copy"
+                "title": "%translateAndCopy.title%"
             },
             {
                 "command": "translates.replace",
-                "title": "Translate and Replace"
+                "title": "%translateAndReplace.title%"
             },
             {
                 "command": "translates.candidate",
-                "title": "Translate Candidate Result"
+                "title": "%translateCandidateResult.title%"
             },
             {
                 "command": "translates.hover",
-                "title": "Translation Hover Switch",
+                "title": "%translationHoverSwitch.title%",
                 "icon": {
                     "light": "./asserts/translate.svg",
                     "dark": "./asserts/translate-dark.svg"
@@ -66,58 +66,50 @@
             {
                 "command": "translates.clipboard",
                 "key": "alt+t",
-                "mac": "options+t",
+                "mac": "option+t",
                 "when": "editorHasSelection"
             },
             {
                 "command": "translates.replace",
                 "key": "alt+ctrl+t",
-                "mac": "options+cmd+t",
+                "mac": "option+cmd+t",
                 "when": "editorHasSelection"
             },
             {
                 "command": "translates.candidate",
                 "key": "shift+alt+t",
-                "mac": "shift+options+t",
+                "mac": "shift+option+t",
                 "when": "editorHasSelection"
             },
             {
                 "command": "translates.hover",
                 "key": "ctrl+k alt+t",
-                "mac": "cmd+k options+t",
+                "mac": "cmd+k option+t",
                 "when": "editorTextFocus"
             }
         ],
-        "menus": {
-            "editor/title": [{
-                "when": "editorFocus",
-                "command": "translates.hover",
-                "alt": "translates.hover",
-                "group": "navigation"
-            }]
-        },
         "configuration": {
             "title": "Google Translate",
             "properties": {
                 "switchFunctionTranslation": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Switch Function Translation. For Example: There is a function named 'PostCreateReceipt'. It will change to 'Post Create Receipt' before translate. "
+                    "description": "%switchFunctionTranslation.description%"
                 },
                 "translate.serverDomain": {
                     "type": "string",
                     "default": "https://translate.google.cn",
-                    "description": "You can set it to the fastest google translate domain."
+                    "description": "%serverDomain.description%"
                 },
                 "translate.firstLanguage": {
                     "type": "string",
-                    "default": "zh",
-                    "description": "All language will tranlate to this language first."
+                    "default": "zh-cn",
+                    "description": "%firstLanguage.description%"
                 },
                 "translate.secondLanguage": {
                     "type": "string",
                     "default": "en",
-                    "description": "It will be translated into this language if it's the first language."
+                    "description": "%secondLanguage.description%"
                 }
             }
         }
@@ -135,6 +127,7 @@
     },
     "dependencies": {
         "clipboardy": "^1.2.3",
-        "got": "^9.6.0"
+        "got": "^9.6.0",
+        "vscode-nls": "^4.1.1"
     }
 }

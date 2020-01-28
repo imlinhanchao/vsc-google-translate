@@ -1,0 +1,11 @@
+{
+    "wait.message": "Waiting",
+    "failed.message": "Translate Failed",
+    "clipboard.message": "The translation results have been placed on the clipboard.",
+    "hoverOn.message": "Hover translation is on.",
+    "hoverOff.message": "Hover translation is off.",
+    "on.text": "On",
+    "off.text": "Off",
+    "on.tooltip": "Turn On Hover Translate",
+    "off.tooltip": "Turn Off Hover Translate"
+}

@@ -1,0 +1,11 @@
+{
+    "translates.title": "翻译",
+    "translateAndCopy.title": "翻译并复制",
+    "translateAndReplace.title": "翻译并替换",
+    "translateCandidateResult.title": "翻译候选结果",
+    "translationHoverSwitch.title": "悬停翻译开关",
+    "switchFunctionTranslation.description": "函数翻译开关。例如：有一个函数名为“PostCreateReceipt”。它将被变更为“Post Create Receipt”，然后再翻译。",
+    "serverDomain.description": "你可以根据需要填写速度更快的 Google 翻译域名",
+    "firstLanguage.description": "所有的语言都将被翻译为这个语言",
+    "secondLanguage.description": "如果是第一语言，他将会被翻译成这个语言"
+}

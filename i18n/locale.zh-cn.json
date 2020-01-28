@@ -1,0 +1,11 @@
+{
+    "wait.message": "请稍后",
+    "failed.message": "翻译失败",
+    "clipboard.message": "翻译结果已放置在剪贴板上。",
+    "hoverOn.message": "悬停翻译已开启。",
+    "hoverOff.message": "悬停翻译已关闭。",
+    "on.text": "开启",
+    "off.text": "关闭",
+    "on.tooltip": "开启悬停翻译",
+    "off.tooltip": "关闭悬停翻译"
+}

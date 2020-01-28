@@ -1,6 +1,7 @@
 const vscode = require('vscode');
 const clipboardy = require('clipboardy');
 const tranlate = require('./tranlate');
+let locale = require('../i18n')();
 
 let currentWord = {
     text: '',
@@ -8,13 +9,6 @@ let currentWord = {
     candidate: []
 };
 
-let message = {
-    wait: 'Waiting',
-    failed: 'Translate Failed',
-    clipboard: 'The translation results have been placed on the clipboard.',
-    hoverOn: 'Hover translation is on.',
-    hoverOff: 'Hover translation is off.'
-};
 
 let hoverOpen = false;
 
@@ -36,28 +30,16 @@ function selectionText() {
     return editor.document.getText(selection);
 }
 
-async function initSetting(cxt) {
+function initSetting(cxt) {
     context = cxt;
     hoverOpen = cxt.globalState.get('hover') || false;
-    let messageKey = 'messages.0.' + vscode.env.language;
     
     cxt.globalState.update('hover', hoverOpen);
 
-    barItem.hover.tooltip = !hoverOpen ? 'Turn On Hover Translate' : 'Turn Off Hover Translate';
-    barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? 'On' : 'Off'}`;
+    barItem.hover.tooltip = !hoverOpen ? locale['on.tooltip'] : locale['off.tooltip'];
+    barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? locale['on.text'] : locale['off.text']}`;
     barItem.hover.command = 'translates.hover'
     barItem.hover.show();
-
-    if (cxt.globalState.get(messageKey)) {
-        message = cxt.globalState.get(messageKey);
-    } else {
-        message.wait = (await tranlate(`稍等`, vscode.env.language)).word;
-        message.failed = (await tranlate(`翻译失败`, vscode.env.language)).word;
-        message.clipboard = (await tranlate(`翻译结果已放置在剪贴板上。`, vscode.env.language)).word;
-        message.hoverOn = (await tranlate(`悬停翻译已开启。`, vscode.env.language)).word;
-        message.hoverOff = (await tranlate(`悬停翻译已关闭。`, vscode.env.language)).word;
-        cxt.globalState.update(messageKey, message);
-    }
 }
 
 let hoverDisposable = vscode.languages.registerHoverProvider({scheme: 'file'}, {
@@ -97,9 +79,9 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
     if (text == '') return;
 
     barItem.word.show();
-    barItem.word.text = `$(pulse) ${message.wait}...`;
+    barItem.word.text = `$(pulse) ${locale['wait.message']}...`;
 
-    let word = `${message.failed}...`;
+    let word = `${locale['failed.message']}...`;
     let candidate = [];
     try {
         let trans = await tranlate(text);
@@ -127,9 +109,9 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
 let switchDisposable = vscode.commands.registerCommand('translates.hover', async function () {
     hoverOpen = !hoverOpen;
     context.globalState.update('hover', hoverOpen);
-    barItem.hover.title = !hoverOpen ? 'Hover Translate On' : 'Hover Translate Off';
-    barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? 'On' : 'Off'}`
-    vscode.window.showInformationMessage(hoverOpen ? message.hoverOn : message.hoverOff);
+    barItem.hover.tooltip = !hoverOpen ? locale['on.tooltip'] : locale['off.tooltip'];
+    barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? locale['on.text'] : locale['off.text']}`;
+    vscode.window.showInformationMessage(hoverOpen ? locale["hoverOn.message"] : locale["hoverOff.message"]);
 });
 
 let copyDisposable = vscode.commands.registerCommand('translates.clipboard', async function () {
@@ -144,7 +126,7 @@ let copyDisposable = vscode.commands.registerCommand('translates.clipboard', asy
             word = currentWord.word;
         }
         clipboardy.writeSync(word);
-        vscode.window.showInformationMessage(message.clipboard);
+        vscode.window.showInformationMessage(locale["clipboard.message"]);
     } catch (error) {
         return vscode.window.showInformationMessage(error.message);
     }
@@ -191,7 +173,7 @@ let canDisposable = vscode.commands.registerCommand('translates.candidate', asyn
         if (chosen) {
             currentWord.word = chosen.label
             clipboardy.writeSync(currentWord.word);
-            vscode.window.showInformationMessage(message.clipboard);
+            vscode.window.showInformationMessage(locale["clipboard.message"]);
             barItem.word.text = `${currentWord.text}: ${currentWord.word}`;
             barItem.candidate.show()
         }

@@ -1,0 +1,11 @@
+{
+    "translates.title": "翻譯",
+    "translateAndCopy.title": "翻譯並復制",
+    "translateAndReplace.title": "翻譯並替換",
+    "translateCandidateResult.title": "翻譯候選結果",
+    "translationHoverSwitch.title": "懸停翻譯開關",
+    "switchFunctionTranslation.description": "函數翻譯開關。例如：有壹個函數名為“PostCreateReceipt”。它將被變更為“Post Create Receipt”，然後再翻譯。",
+    "serverDomain.description": "妳可以根據需要填寫速度更快的 Google 翻譯域名",
+    "firstLanguage.description": "所有的語言都將被翻譯為這個語言",
+    "secondLanguage.description": "如果是第壹語言，他將會被翻譯成這個語言"
+}
