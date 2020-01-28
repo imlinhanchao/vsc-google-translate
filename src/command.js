@@ -9,7 +9,11 @@ let currentWord = {
 };
 
 let message = {
-
+    wait: 'Waiting',
+    failed: 'Translate Failed',
+    clipboard: 'The translation results have been placed on the clipboard.',
+    hoverOn: 'Hover translation is on.',
+    hoverOff: 'Hover translation is off.',
 };
 
 let hoverOpen = false;
@@ -34,15 +38,18 @@ function selectionText() {
 async function initSetting(cxt) {
     context = cxt;
     hoverOpen = cxt.globalState.get('hover') || false;
+    let messageKey = 'messages.0.' + vscode.env.language;
     
     cxt.globalState.update('hover', hoverOpen);
-    if (cxt.globalState.get('message')) {
-        message = cxt.globalState.get('message');
+    if (cxt.globalState.get(messageKey)) {
+        message = cxt.globalState.get(messageKey);
     } else {
-        message.clipboard = (await tranlate(`The translation results have been placed on the clipboard.`)).word;
-        message.hoverOn = (await tranlate(`Hover translation is on.`)).word;
-        message.hoverOff = (await tranlate(`Hover translation is off.`)).word;
-        cxt.globalState.update('message', message);
+        message.wait = (await tranlate(`稍等`, vscode.env.language)).word;
+        message.failed = (await tranlate(`翻译失败`, vscode.env.language)).word;
+        message.clipboard = (await tranlate(`翻译结果已放置在剪贴板上。`, vscode.env.language)).word;
+        message.hoverOn = (await tranlate(`悬停翻译已开启。`, vscode.env.language)).word;
+        message.hoverOff = (await tranlate(`悬停翻译已关闭。`, vscode.env.language)).word;
+        cxt.globalState.update(messageKey, message);
     }
 }
 
@@ -83,9 +90,9 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
     if (text == '') return;
 
     barItem.word.show();
-    barItem.word.text = `Waiting...`;
+    barItem.word.text = `${message.wait}...`;
 
-    let word = 'Translate Failed...';
+    let word = `${message.failed}...`;
     let candidate = [];
     try {
         let trans = await tranlate(text);

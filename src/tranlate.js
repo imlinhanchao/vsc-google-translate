@@ -108,11 +108,11 @@ function getConfig() {
     return values;
 }
 
-module.exports = async (word) => {
+module.exports = async (word, l) => {
     config = getConfig();
     let lang = {
         from: 'auto',
-        to: config['translate.firstLanguage']
+        to: l || config['translate.firstLanguage']
     };
 
     if (config.switchFunctionTranslation) {
@@ -122,7 +122,7 @@ module.exports = async (word) => {
     }
 
     let tran = await translate(word, lang);
-    if (tran.word.replace(/\s/g, '') == word.replace(/\s/g, '')) {
+    if (!l && tran.word.replace(/\s/g, '') == word.replace(/\s/g, '')) {
         lang.to = config['translate.secondLanguage'];
         let tranSecond = await translate(word, lang);
         if (tranSecond.word) tran = tranSecond;
