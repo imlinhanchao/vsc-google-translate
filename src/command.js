@@ -13,7 +13,7 @@ let message = {
     failed: 'Translate Failed',
     clipboard: 'The translation results have been placed on the clipboard.',
     hoverOn: 'Hover translation is on.',
-    hoverOff: 'Hover translation is off.',
+    hoverOff: 'Hover translation is off.'
 };
 
 let hoverOpen = false;
@@ -21,6 +21,7 @@ let hoverOpen = false;
 let barItem = {
     word: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left),
     candidate: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left),
+    hover: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
 }
 
 let context = null;
@@ -41,6 +42,12 @@ async function initSetting(cxt) {
     let messageKey = 'messages.0.' + vscode.env.language;
     
     cxt.globalState.update('hover', hoverOpen);
+
+    barItem.hover.tooltip = !hoverOpen ? 'Turn On Hover Translate' : 'Turn Off Hover Translate';
+    barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? 'On' : 'Off'}`;
+    barItem.hover.command = 'translates.hover'
+    barItem.hover.show();
+
     if (cxt.globalState.get(messageKey)) {
         message = cxt.globalState.get(messageKey);
     } else {
@@ -90,7 +97,7 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
     if (text == '') return;
 
     barItem.word.show();
-    barItem.word.text = `${message.wait}...`;
+    barItem.word.text = `$(pulse) ${message.wait}...`;
 
     let word = `${message.failed}...`;
     let candidate = [];
@@ -113,13 +120,15 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
     barItem.word.command = 'translates.clipboard'
 
     candidate.length ? barItem.candidate.show() : barItem.candidate.hide();
-    barItem.candidate.text = `$(triangle-right)`
+    barItem.candidate.text = `$(ellipsis)`
     barItem.candidate.command = 'translates.candidate'
 });
 
 let switchDisposable = vscode.commands.registerCommand('translates.hover', async function () {
     hoverOpen = !hoverOpen;
     context.globalState.update('hover', hoverOpen);
+    barItem.hover.title = !hoverOpen ? 'Hover Translate On' : 'Hover Translate Off';
+    barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? 'On' : 'Off'}`
     vscode.window.showInformationMessage(hoverOpen ? message.hoverOn : message.hoverOff);
 });
 
