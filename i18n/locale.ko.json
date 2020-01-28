@@ -1,0 +1,11 @@
+{
+    "wait.message": "잠깐만",
+    "failed.message": "번역 실패",
+    "clipboard.message": "번역 결과가 클립 보드에 배치되었습니다.",
+    "hoverOn.message": "호버 변환이 켜져 있습니다.",
+    "hoverOff.message": "호버 번역이 꺼져 있습니다.",
+    "on.text": "오픈",
+    "off.text": "닫기",
+    "on.tooltip": "호버 번역 켜기",
+    "off.tooltip": "호버 번역 끄기"
+}

@@ -1,0 +1,11 @@
+{
+    "wait.message": "Espera um minuto",
+    "failed.message": "Falha na tradução",
+    "clipboard.message": "Os resultados da tradução foram colocados na área de transferência.",
+    "hoverOn.message": "A tradução instantânea está ativada.",
+    "hoverOff.message": "A tradução instantânea está desativada.",
+    "on.text": "Aberto",
+    "off.text": "Fechar",
+    "on.tooltip": "Ativar tradução instantânea",
+    "off.tooltip": "Desativar tradução instantânea"
+}

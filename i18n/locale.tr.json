@@ -1,0 +1,11 @@
+{
+    "wait.message": "Bir dakika",
+    "failed.message": "Çeviri hatası",
+    "clipboard.message": "Çeviri sonuçları panoya yerleştirildi.",
+    "hoverOn.message": "Fareyle üzerine gelindiğinde çeviri açık.",
+    "hoverOff.message": "Fareyle üzerine gelindiğinde çeviri kapalı.",
+    "on.text": "açık",
+    "off.text": "yakın",
+    "on.tooltip": "Fareyle üzerine gelindiğinde çeviriyi açma",
+    "off.tooltip": "Fareyle üzerine gelindiğinde çeviriyi kapatma"
+}

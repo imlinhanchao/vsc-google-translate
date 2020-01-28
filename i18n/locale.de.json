@@ -1,0 +1,11 @@
+{
+    "wait.message": "Warte eine Minute",
+    "failed.message": "Übersetzungsfehler",
+    "clipboard.message": "Die Übersetzungsergebnisse wurden in die Zwischenablage verschoben.",
+    "hoverOn.message": "Die Hover-Übersetzung ist aktiviert.",
+    "hoverOff.message": "Die Hover-Übersetzung ist deaktiviert.",
+    "on.text": "Öffnen",
+    "off.text": "Schliessen",
+    "on.tooltip": "Aktivieren Sie die Hover-Übersetzung",
+    "off.tooltip": "Deaktivieren Sie die Hover-Übersetzung"
+}

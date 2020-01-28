@@ -1,0 +1,11 @@
+{
+    "wait.message": "Attends une minute",
+    "failed.message": "Échec de la traduction",
+    "clipboard.message": "Les résultats de la traduction ont été placés dans le presse-papiers.",
+    "hoverOn.message": "La traduction en survol est activée.",
+    "hoverOff.message": "La traduction en survol est désactivée.",
+    "on.text": "Ouverte",
+    "off.text": "Fermer",
+    "on.tooltip": "Activer la traduction en survol",
+    "off.tooltip": "Traduction de Turn Hover"
+}

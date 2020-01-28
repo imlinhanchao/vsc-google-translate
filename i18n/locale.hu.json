@@ -1,0 +1,11 @@
+{
+    "wait.message": "Várj egy percet",
+    "failed.message": "Fordítási hiba",
+    "clipboard.message": "A fordítási eredményeket a vágólapra helyezték.",
+    "hoverOn.message": "A lebegő fordítás be van kapcsolva.",
+    "hoverOff.message": "A lebegő fordítás ki van kapcsolva.",
+    "on.text": "nyílt",
+    "off.text": "közel",
+    "on.tooltip": "Kapcsolja be a lebegő fordítást",
+    "off.tooltip": "Kapcsolja ki a lebegő fordítást"
+}

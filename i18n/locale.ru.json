@@ -1,0 +1,11 @@
+{
+    "wait.message": "Подожди минутку",
+    "failed.message": "Ошибка перевода",
+    "clipboard.message": "Результаты перевода были помещены в буфер обмена.",
+    "hoverOn.message": "Hover перевод включен.",
+    "hoverOff.message": "Hover перевод отключен.",
+    "on.text": "открытый",
+    "off.text": "близко",
+    "on.tooltip": "Включить перевод при наведении",
+    "off.tooltip": "Отключить при наведении"
+}

@@ -1,0 +1,11 @@
+{
+    "wait.message": "Por favor espera",
+    "failed.message": "Error de traducción",
+    "clipboard.message": "Los resultados de la traducción se han colocado en el portapapeles.",
+    "hoverOn.message": "La traducción de desplazamiento está activada.",
+    "hoverOff.message": "La traducción de desplazamiento está desactivada.",
+    "on.text": "Abierto",
+    "off.text": "Cerrar",
+    "on.tooltip": "Activa la traducción de desplazamiento",
+    "off.tooltip": "Desactiva la traducción de desplazamiento"
+}

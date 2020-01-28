@@ -1,0 +1,11 @@
+{
+    "wait.message": "お待ちください",
+    "failed.message": "翻訳の失敗",
+    "clipboard.message": "翻訳結果がクリップボードに配置されました。",
+    "hoverOn.message": "ホバー翻訳がオンになっています。",
+    "hoverOff.message": "ホバー翻訳はオフです。",
+    "on.text": "開く",
+    "off.text": "閉じる",
+    "on.tooltip": "ホバー翻訳をオンにする",
+    "off.tooltip": "ホバー翻訳をオフにする"
+}

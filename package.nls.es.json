@@ -1,0 +1,11 @@
+{
+    "translates.title": "Traducir",
+    "translateAndCopy.title": "Traducir y copiar",
+    "translateAndReplace.title": "Traducir y reemplazar",
+    "translateCandidateResult.title": "Resultados de sugerencias de traducción",
+    "translationHoverSwitch.title": "Interruptor de desplazamiento",
+    "switchFunctionTranslation.description": "Interruptor de funciones. Por ejemplo, hay una función llamada \"PostCreateReceipt\". Cámbielo a \"Post Create Receipt\" antes de la traducción.",
+    "serverDomain.description": "Puede ingresar un dominio de traducción de Google más rápido según sea necesario.",
+    "firstLanguage.description": "Todos los idiomas han sido traducidos a ese idioma.",
+    "secondLanguage.description": "Si el contenido a traducir es un primer idioma, será traducido a ese idioma."
+}

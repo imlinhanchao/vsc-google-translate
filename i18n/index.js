@@ -15,7 +15,7 @@ module.exports = () => {
         langLocale = require(`./locale.${lang}.json`);
     } catch (error) { }
     
-    if (langLocale) locale = langLocale;
+    if (langLocale) locale = Object.assign(locale, langLocale);
 
     return locale;
 }
