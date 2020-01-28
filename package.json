@@ -9,7 +9,7 @@
         "english",
         "chinese"
     ],
-    "version": "1.0.10",
+    "version": "1.1.0",
     "repository": "https://github.com/imlinhanchao/vsc-google-translate",
     "engines": {
         "vscode": "^1.30.0"
@@ -66,25 +66,25 @@
             {
                 "command": "translates.clipboard",
                 "key": "alt+t",
-                "mac": "option+t",
+                "mac": "alt+t",
                 "when": "editorHasSelection"
             },
             {
                 "command": "translates.replace",
                 "key": "alt+ctrl+t",
-                "mac": "option+cmd+t",
+                "mac": "alt+cmd+t",
                 "when": "editorHasSelection"
             },
             {
                 "command": "translates.candidate",
                 "key": "shift+alt+t",
-                "mac": "shift+option+t",
+                "mac": "shift+alt+t",
                 "when": "editorHasSelection"
             },
             {
                 "command": "translates.hover",
                 "key": "ctrl+k alt+t",
-                "mac": "cmd+k option+t",
+                "mac": "cmd+k alt+t",
                 "when": "editorTextFocus"
             }
         ],
