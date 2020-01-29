@@ -1,37 +1,43 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.1.0] - 2020-01-29
+- Added setting interface to configure target translation language, etc.
+- Added function name translation feature.
+- Prompts support multiple languages(i18n).
+- Fix several known bugs.
+
 ## [1.0.10] - 2019-11-18
-- 更新请求库为 got, 避免一些兼容性问题。
+- Update request library to `got`, to avoid some compatibility issues.
 
 ## [1.0.9] - 2019-11-14
-- 加入内部错误提示，方便用户反馈 Issue。
+- Added internal error prompts for user feedback issues.
   
 ## [1.0.8] - 2019-09-29
-- 移除 Request 和 URLEncode 依赖，改用原生模块，减少包大小。
-- 加入自动根据编辑器语言切换目标语言。
+- Remove Request and URLEncode dependencies, use native modules instead, and reduce package size.
+- Added the option to automatically switch the target language based on the language of the editor. If the text in the current compiler language is selected, it will be automatically translated into English.
 
 ## [1.0.7] - 2019-09-25
-- 更新限定功能触发条件，避免与 VSCode 的快捷键冲突。
+- Update limited function trigger conditions to avoid conflicts with VSCode shortcuts.
 
 ## [1.0.6] - 2019-09-23
-- 修复翻译一段文字时，只显示第一句的翻译结果的问题。
+- Fixed the problem that only the translation result of the first sentence is displayed when translating a paragraph of text.
   
 ## [1.0.5] - 2019-09-23
-- 加入悬停显示选中文本翻译结果功能。
+- Added the function of displaying the translation result of the selected text when hovering.
 
 ## [1.0.4] - 2019-08-30
-- 加入将所选文字语言翻译直接替换的指令。
-- 更新复制到剪切板和候选词功能，无需在翻译后才能执行。
+- Add the instruction to directly replace the selected text language translation.
+- Update Copy to Clipboard and Candidate function, no need to perform after translation.
 
 ## [1.0.3] - 2019-08-28
-- 加入根据所选文字语言自动翻译为中文。
+- Add automatic translation into Chinese based on the selected text language.
   
 ## [1.0.2] - 2019-01-25
-- 加入 Linux 注意事项说明。
+- Add Linux notes.
    
 ## [1.0.1] - 2018-12-19
-- 更新 Readme 加入快捷键说明。
+- Add shortcut key description.
  
 ## [1.0.0] - 2018-12-18
-- Initial release
+- Support Google Translate Chinese-English translation.
