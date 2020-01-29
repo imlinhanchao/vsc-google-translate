@@ -120,7 +120,11 @@ let copyDisposable = vscode.commands.registerCommand('translates.clipboard', asy
 
     try {
         if (currentWord.text == '') {
+            barItem.candidate.hide();
+            barItem.word.show();
+            barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
             let trans = await tranlate(text);
+            barItem.word.hide();
             word = trans.word;
         } else {
             word = currentWord.word;
@@ -142,7 +146,11 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
 
     try {
         if (currentWord.text == '' || currentWord.text != text) {
+            barItem.candidate.hide();
+            barItem.word.show();
+            barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
             let trans = await tranlate(text);
+            barItem.word.hide();
             word = trans.word;
         } else {
             word = currentWord.word;
@@ -164,7 +172,11 @@ let canDisposable = vscode.commands.registerCommand('translates.candidate', asyn
 
     try {
         if (currentWord.text == '' || (currentWord.text != text && text != '')) {
+            barItem.candidate.hide();
+            barItem.word.show();
+            barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
             currentWord = await tranlate(text);
+            barItem.word.hide();
         }
 
         let items = [];
