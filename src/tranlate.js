@@ -73,7 +73,7 @@ function getCandidate(tran) {
 }
 
 async function translate(word, lang) {
-    let url = `${config['translate.serverDomain'].replace(/\/$/, '')}/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${encodeURIComponent(word)}`
+    let url = `${config['google-translate.serverDomain'].replace(/\/$/, '')}/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${encodeURIComponent(word)}`
 
     try {
         let req = await got.get(url, {
@@ -98,10 +98,10 @@ async function translate(word, lang) {
 
 function getConfig() {
     let keys = [
-        'switchFunctionTranslation',
-        'translate.serverDomain',
-        'translate.firstLanguage',
-        'translate.secondLanguage',
+        'google-translate.switchFunctionTranslation',
+        'google-translate.serverDomain',
+        'google-translate.firstLanguage',
+        'google-translate.secondLanguage',
     ];
     let values = {};
     keys.forEach(k => values[k] = vscode.workspace.getConfiguration().get(k))
@@ -112,10 +112,10 @@ module.exports = async (word, l) => {
     config = getConfig();
     let lang = {
         from: 'auto',
-        to: l || config['translate.firstLanguage']
+        to: l || config['google-translate.firstLanguage']
     };
 
-    if (config.switchFunctionTranslation) {
+    if (config['google-translate.switchFunctionTranslation']) {
         word = word.replace(/([a-z])([A-Z])/g, "$1 $2")
             .replace(/([_])/g, " ").replace(/=/g, ' = ')
             .replace(/(\b)\.(\b)/g, '$1 \n{>}\n $2 ');
@@ -123,11 +123,11 @@ module.exports = async (word, l) => {
 
     let tran = await translate(word, lang);
     if (!l && tran.word.replace(/\s/g, '') == word.replace(/\s/g, '')) {
-        lang.to = config['translate.secondLanguage'];
+        lang.to = config['google-translate.secondLanguage'];
         let tranSecond = await translate(word, lang);
         if (tranSecond.word) tran = tranSecond;
     }
-    if (config.switchFunctionTranslation) {
+    if (config['google-translate.switchFunctionTranslation']) {
         tran.word = tran.word.replace(/\n{>}\n/g, '.');
         tran.candidate = tran.candidate.map(c => c.replace(/{([^>]*?)>}/g, '$1\n{>}').replace(/\n{>}\n/g, '.'));
     }

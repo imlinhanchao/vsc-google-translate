@@ -160,10 +160,10 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
 
 let canDisposable = vscode.commands.registerCommand('translates.candidate', async function () {
     let text = selectionText();
-    if (text == '') return;
+    if (text == '' && !currentWord.text) return;
 
     try {
-        if (currentWord.text == '' || currentWord.text != text) {
+        if (currentWord.text == '' || (currentWord.text != text && text != '')) {
             currentWord = await tranlate(text);
         }
 

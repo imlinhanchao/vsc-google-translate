@@ -91,22 +91,22 @@
         "configuration": {
             "title": "Google Translate",
             "properties": {
-                "switchFunctionTranslation": {
+                "google-translate.switchFunctionTranslation": {
                     "type": "boolean",
                     "default": false,
                     "description": "%switchFunctionTranslation.description%"
                 },
-                "translate.serverDomain": {
+                "google-translate.serverDomain": {
                     "type": "string",
                     "default": "https://translate.google.cn",
                     "description": "%serverDomain.description%"
                 },
-                "translate.firstLanguage": {
+                "google-translate.firstLanguage": {
                     "type": "string",
-                    "default": "zh-cn",
+                    "default": "%firstLanguage.default%",
                     "description": "%firstLanguage.description%"
                 },
-                "translate.secondLanguage": {
+                "google-translate.secondLanguage": {
                     "type": "string",
                     "default": "en",
                     "description": "%secondLanguage.description%"

@@ -7,5 +7,6 @@
     "switchFunctionTranslation.description": "Switch Function Translation. For Example: There is a function named 'PostCreateReceipt'. It will change to 'Post Create Receipt' before translate. ",
     "serverDomain.description": "You can set it to the fastest google translate domain.",
     "firstLanguage.description": "All language will tranlate to this language first.",
-    "secondLanguage.description": "It will be translated into this language if it's the first language."
+    "secondLanguage.description": "It will be translated into this language if it's the first language.",
+    "firstLanguage.default": "zh-cn"
 }

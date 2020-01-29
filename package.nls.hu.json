@@ -7,5 +7,6 @@
     "switchFunctionTranslation.description": "Funkció kapcsoló. Például van egy \"PostCreateReceipt\" nevű funkció. A fordítás előtt változtassa meg \"Post Create Receipt\" elemre.",
     "serverDomain.description": "Szükség szerint megadhat egy gyorsabb Google fordítási domaint.",
     "firstLanguage.description": "Minden nyelvet lefordítottak erre a nyelvre.",
-    "secondLanguage.description": "Ha a lefordítandó tartalom első nyelv, akkor lefordítják erre a nyelvre."
+    "secondLanguage.description": "Ha a lefordítandó tartalom első nyelv, akkor lefordítják erre a nyelvre.",
+    "firstLanguage.default": "hu"
 }

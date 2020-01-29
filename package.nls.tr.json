@@ -7,5 +7,6 @@
     "switchFunctionTranslation.description": "İşlev anahtarı. Örneğin, \"PostCreateReceipt\" adlı bir işlev vardır. Çeviri yapmadan önce \"Post Create Receipt\" olarak değiştirin.",
     "serverDomain.description": "Gerektiğinde daha hızlı bir Google çeviri alan adı girebilirsiniz.",
     "firstLanguage.description": "Tüm diller bu dile çevrildi.",
-    "secondLanguage.description": "Çevrilecek içerik birinci dil ise, o dile çevrilecektir."
+    "secondLanguage.description": "Çevrilecek içerik birinci dil ise, o dile çevrilecektir.",
+    "firstLanguage.default": "tr"
 }

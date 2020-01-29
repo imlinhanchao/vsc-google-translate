@@ -7,7 +7,8 @@
     "switchFunctionTranslation.description": "Функциональный переключатель. Например, есть функция с именем «PostCreateReceipt». Измените его на «Post Create Receipt» перед переводом.",
     "serverDomain.description": "При необходимости вы можете ввести более быстрый домен перевода Google.",
     "firstLanguage.description": "Все языки были переведены на этот язык.",
-    "secondLanguage.description": "Если контент для перевода является родным языком, он будет переведен на этот язык."
+    "secondLanguage.description": "Если контент для перевода является родным языком, он будет переведен на этот язык.",
+    "firstLanguage.default": "ru"
 }
 
 

@@ -7,7 +7,8 @@
     "switchFunctionTranslation.description": "Interruptor de função. Por exemplo, há uma função chamada \"PostCreateReceipt\". Altere para \"Post Create Receipt\" antes da tradução.",
     "serverDomain.description": "Você pode inserir um domínio de tradução do Google mais rápido, conforme necessário.",
     "firstLanguage.description": "Todos os idiomas foram traduzidos para esse idioma.",
-    "secondLanguage.description": "Se o conteúdo a ser traduzido for o primeiro idioma, ele será traduzido para esse idioma."
+    "secondLanguage.description": "Se o conteúdo a ser traduzido for o primeiro idioma, ele será traduzido para esse idioma.",
+    "firstLanguage.default": "pt"
 }
 
 

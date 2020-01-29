@@ -7,7 +7,8 @@
     "switchFunctionTranslation.description": "機能変換スイッチ。たとえば、「PostCreateReceipt」という名前の関数があります。翻訳する前に「Post Create Receipt」に変更してください。",
     "serverDomain.description": "必要に応じて、より高速なGoogle翻訳ドメインに入力できます。",
     "firstLanguage.description": "すべての言語がこの言語に翻訳されます。",
-    "secondLanguage.description": "それが第一言語である場合、彼はこの言語に翻訳されます"
+    "secondLanguage.description": "それが第一言語である場合、彼はこの言語に翻訳されます",
+    "firstLanguage.default": "ja"
 }
 
 
