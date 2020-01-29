@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.1.1] - 2020-01-29
+- Update extension description.
+
 ## [1.1.0] - 2020-01-29
 - Added setting interface to configure target translation language, etc.
 - Added function name translation feature.

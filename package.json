@@ -2,7 +2,7 @@
     "name": "google-translate",
     "publisher": "hancel",
     "displayName": "Google Translate",
-    "description": "A extension uses to translate words between english and chinese by google.",
+    "description": "A extension uses to translate words between different language by google.",
     "keywords": [
         "Google",
         "Translate",

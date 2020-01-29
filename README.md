@@ -37,6 +37,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.1.1
+1. Update extension description.
+
 ### 1.1.0
 1. Added setting interface to configure target translation language, etc.
 2. Added function name translation feature.
