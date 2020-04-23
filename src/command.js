@@ -66,7 +66,7 @@ let hoverDisposable = vscode.languages.registerHoverProvider({scheme: 'file'}, {
             let trans = await tranlate(editor.document.getText(selection));
             let word = trans.word    
             let pre = `**[Google Translate](https://translate.google.cn/?sl=auto&tl=${trans.lang.to}&text=${escape(trans.text)})**\n\n`;
-            return new vscode.Hover(pre + word);
+            return new vscode.Hover(pre + word.replace(/\r\n/g, '  \r\n'));
         } catch (error) {
             return new vscode.Hover('**[Error](https://github.com/imlinhanchao/vsc-google-translate/issues)**\n\n' + error.message);
         }
@@ -93,12 +93,12 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
 
     currentWord = { word, text, candidate };
 
-    vscode.window.showInformationMessage(`${text}: ${word}`);
+    vscode.window.showInformationMessage(`${text.trim().slice(0, 100).trim() + '... '}: ${word.trim().slice(0, 100).trim() + '... '}`);
 
     barItem.word.tooltip = word;
-    if(text.length > 10) text = text.slice(0, 10) + '... '
-    if(word.length > 10) word = word.slice(0, 10) + '...'
-    barItem.word.text = `${text}: ${word}`;
+    if(text.length > 10) text = text.trim().slice(0, 10).trim() + '... '
+    if(word.length > 10) word = word.trim().slice(0, 10).trim() + '...'
+    barItem.word.text = `${text.trim()}: ${word.trim()}`;
     barItem.word.command = 'translates.clipboard'
 
     candidate.length ? barItem.candidate.show() : barItem.candidate.hide();
@@ -160,7 +160,7 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
             editBuilder.replace(selection, word);
         })
         
-        vscode.window.showInformationMessage(`${text} => ${word}.`);
+        vscode.window.showInformationMessage(`${text.trim().slice(0, 100).trim() + '... '} => ${word.trim().slice(0, 100).trim()}`);
     } catch (error) {
         return vscode.window.showInformationMessage(error.message);
     }

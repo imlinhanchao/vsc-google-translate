@@ -66,7 +66,7 @@ function getCandidate(tran) {
         let candidates = tran[5].map(tt => (tt[2] || [tt[0]]).map(t => t[0]));
         let maxLength = Math.max(...candidates.map(c => c.length));
         for (let i = 0; i < maxLength; i++) {
-            words.push(candidates.map(c => c[i] || c[c.length - 1]).join(''));
+            words.push(candidates.map(c => c[i] || c[c.length - 1]).join('').trim());
         }
     }
     return words;
@@ -88,7 +88,7 @@ async function translate(word, lang) {
         return {
             lang,
             text: word,
-            word: tranWord[0].map(t => t[0]).join(''),
+            word: tranWord[0].map(t => t[0]).join('').trim(),
             candidate
         };
     } catch (err) {

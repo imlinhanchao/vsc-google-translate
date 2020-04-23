@@ -37,6 +37,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.1.2
+1. Fix the operation and display problems of a large number of text translations.
+
 ### 1.1.1
 1. Update extension description.
 

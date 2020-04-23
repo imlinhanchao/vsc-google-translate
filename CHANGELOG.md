@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.1.2] - 2020-04-23
+- Fix the operation and display problems of a large number of text translations.
+
 ## [1.1.1] - 2020-01-29
 - Update extension description.
 
