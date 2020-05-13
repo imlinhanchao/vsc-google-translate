@@ -22,7 +22,7 @@
    ![懸停翻譯選中文字](./asserts/hover.gif)
 6. 設置界面，可設置翻譯的目標語言
    ![設置界面](./asserts/setting.jpg)
-   
+7. 暫時切換到其他翻譯語言，直到關閉工作空間或修改配置。 `google-translate.switch`
 
 > Tips: 快捷鍵修改可以到 VSCode 的鍵盤快捷方式 ( `Ctrl + K Ctrl + S` ) 修改。
 
@@ -43,6 +43,10 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.1.3
+1. 修復第一語言非中文時，翻譯結果為空的問題。
+2. 加入可臨時切換翻譯語言的功能。
+   
 ### 1.1.2
 1. 修復一些大量文本翻譯的操作與顯示問題。
 

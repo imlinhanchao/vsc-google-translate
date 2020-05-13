@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.1.3] - 2020-05-13
+- Fix issue that the translation result is empty when the first language is not Chinese.
+- Add the function of temporarily switching the translation language.
+   
 ## [1.1.2] - 2020-04-23
 - Fix the operation and display problems of a large number of text translations.
 

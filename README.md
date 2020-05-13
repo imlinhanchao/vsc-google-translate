@@ -20,8 +20,8 @@ English Readme / [简体中文说明](README.zh-cn.md) / [繁體中文說明](RE
    ![Hover to translate](./asserts/hover.gif)
 6. The target language of translation can be set through the setting.
    ![setting](./asserts/setting.jpg)
+7. Temporarily switch to which language to translate to until you close the workspace or modify the configuration. `google-translate.switch`
    
-
 > Tips: Shortcuts can be modified by going to VSCode's Keyboard Shortcuts (`Ctrl + K Ctrl + S`)
 
 ## Notice
@@ -40,6 +40,10 @@ sudo yum install xsel
 ```
 
 ## Release Notes
+
+### 1.1.3
+1. Fix issue that the translation result is empty when the first language is not Chinese.
+2. Add the function of temporarily switching the translation language.
 
 ### 1.1.2
 1. Fix the operation and display problems of a large number of text translations.
