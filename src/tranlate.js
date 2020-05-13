@@ -72,8 +72,8 @@ function getCandidate(tran) {
     return words;
 }
 
-async function translate(word, lang) {
-    let url = `${config['google-translate.serverDomain'].replace(/\/$/, '')}/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${encodeURIComponent(word)}`
+async function translate(text, lang) {
+    let url = `${config['google-translate.serverDomain'].replace(/\/$/, '')}/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=sos&dt=ss&dt=t&source=bh&ssel=0&tsel=0&kc=1${tk(text, tkk)}&q=${encodeURIComponent(text)}`
 
     try {
         let req = await got.get(url, {
@@ -84,11 +84,12 @@ async function translate(word, lang) {
         });
         let tranWord = req.body;
         let candidate = getCandidate(tranWord);
-        tranWord[0].pop();
+        let word = tranWord[0].map(t => t[0] || '').join('').trim();
+        if (!word && candidate) word = candidate[0];
         return {
             lang,
-            text: word,
-            word: tranWord[0].map(t => t[0]).join('').trim(),
+            text,
+            word: word || '',
             candidate
         };
     } catch (err) {
@@ -122,7 +123,7 @@ module.exports = async (word, l) => {
     }
 
     let tran = await translate(word, lang);
-    if (!l && tran.word.replace(/\s/g, '') == word.replace(/\s/g, '')) {
+    if (!l && tran.word.replace(/\s/g, '') == word.replace(/\s/g, '') || !tran.word.trim()) {
         lang.to = config['google-translate.secondLanguage'];
         let tranSecond = await translate(word, lang);
         if (tranSecond.word) tran = tranSecond;
