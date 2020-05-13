@@ -2,6 +2,10 @@
 
 基於 [Google 翻譯(cn)](https://translate.google.cn)，無需科學上網，無需 API Key 的翻譯擴展。
 
+❤ [Sponsor me](https://www.paypal.me/imlinhanchao) / [赞助开发者](https://afdian.net/@imlinhanchao)
+
+[English Readme](README.md) / [简体中文说明](README.zh-cn.md) / 繁體中文說明
+
 ## Features
 
 包含以下功能：
