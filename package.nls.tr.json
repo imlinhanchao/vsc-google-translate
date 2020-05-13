@@ -4,6 +4,7 @@
     "translateAndReplace.title": "Çevir ve değiştir",
     "translateCandidateResult.title": "Çeviri önerisi sonuçları",
     "translationHoverSwitch.title": "Fareyle üzerine gelme anahtarı",
+    "translateSwitchLang.title": "Çevirilecek hedef dili değiştirin",
     "translationSettings.title": "Ayarlar",
     "switchFunctionTranslation.description": "İşlev anahtarı. Örneğin, \"PostCreateReceipt\" adlı bir işlev vardır. Çeviri yapmadan önce \"Post Create Receipt\" olarak değiştirin.",
     "serverDomain.description": "Gerektiğinde daha hızlı bir Google çeviri alan adı girebilirsiniz.",

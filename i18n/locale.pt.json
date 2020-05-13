@@ -11,5 +11,7 @@
     "like.extension": "Você gosta desta extensão (Google Translate)? Espero receber seus comentários gentilmente favoráveis.",
     "like.ok": "sim",
     "like.no": "Não",
-    "like.later": "Lembrar mais tarde"
+    "like.later": "Lembrar mais tarde",
+    "switch.success": "O idioma da tradução foi temporariamente alterado para ",
+    "switch.message": "Para qual idioma você deseja mudar temporariamente?"
 }

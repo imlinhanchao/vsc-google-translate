@@ -56,6 +56,11 @@
                 "title": "%translateCandidateResult.title%"
             },
             {
+                "command": "translates.switch",
+                "category": "Google Translate",
+                "title": "%translateSwitchLang.title%"
+            },
+            {
                 "command": "translates.hover",
                 "category": "Google Translate",
                 "title": "%translationHoverSwitch.title%",
@@ -65,7 +70,7 @@
                 }
             },
             {
-                "command": "translates.Settings",
+                "command": "translates.settings",
                 "category": "Google Translate",
                 "title": "%translationSettings.title%"
             }

@@ -11,5 +11,7 @@
     "like.extension": "この拡張機能（Google Translate）は気に入りましたか？あなたの親切なコメントを期待しています。",
     "like.ok": "はい",
     "like.no": "ノー",
-    "like.later": "後で思い出させる"
+    "like.later": "後で思い出させる",
+    "switch.success": "翻訳言語が一時的に切り替えられました ",
+    "switch.message": "一時的にどの言語に切り替えたいですか？"
 }

@@ -11,5 +11,7 @@
     "like.extension": "Tetszik ez a kiterjesztés (Google Translate)? Remélem, hogy megkapja kedvesen kedvező megjegyzéseit.",
     "like.ok": "Igen",
     "like.no": "Nem",
-    "like.later": "Emlékeztess később"
+    "like.later": "Emlékeztess később",
+    "switch.success": "A fordítási nyelv átmenetileg váltott ",
+    "switch.message": "Melyik nyelvre szeretne átmenetileg váltani?"
 }

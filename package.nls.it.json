@@ -4,6 +4,7 @@
     "translateAndReplace.title": "Traduci e sostituisci",
     "translateCandidateResult.title": "Risultati dei suggerimenti di traduzione",
     "translationHoverSwitch.title": "Interruttore al passaggio del mouse",
+    "translateSwitchLang.title": "Cambia la lingua di destinazione da tradurre",
     "translationSettings.title": "impostazioni",
     "switchFunctionTranslation.description": "Interruttore di funzione. Ad esempio, esiste una funzione denominata \"PostCreateReceipt\". Modificalo in \"Posta crea ricevuta\" prima della traduzione.",
     "serverDomain.description": "Puoi inserire un dominio di traduzione Google più veloce, se necessario.",

@@ -4,6 +4,7 @@
     "translateAndReplace.title": "Translate and Replace",
     "translateCandidateResult.title": "Translate Candidate Result",
     "translationHoverSwitch.title": "Translation Hover Switch",
+    "translateSwitchLang.title": "Switch the target language to translate",
     "translationSettings.title": "Settings",
     "switchFunctionTranslation.description": "Switch Function Translation. For Example: There is a function named 'PostCreateReceipt'. It will change to 'Post Create Receipt' before translate. ",
     "serverDomain.description": "You can set it to the fastest google translate domain.",

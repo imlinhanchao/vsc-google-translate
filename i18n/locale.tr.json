@@ -11,5 +11,7 @@
     "like.extension": "Bu uzantıyı beğendiniz mi (Google Translate)? Nazik olumlu yorumlarınızı almayı umuyoruz.",
     "like.ok": "Evet",
     "like.no": "Hayır",
-    "like.later": "Daha sonra hatırlat"
+    "like.later": "Daha sonra hatırlat",
+    "switch.success": "Çeviri dili geçici olarak olarak değiştirildi ",
+    "switch.message": "Geçici olarak hangi dile geçmek istiyorsunuz?"
 }

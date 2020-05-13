@@ -11,5 +11,7 @@
     "like.extension": "이 확장 프로그램 (Google Translate) 이 마음에 드십니까? 친절하게 유리한 의견을 얻을 수 있기를 바랍니다.",
     "like.ok": "예",
     "like.no": "아니",
-    "like.later": "나중에 알림"
+    "like.later": "나중에 알림",
+    "switch.success": "번역 언어가 일시적으로 ",
+    "switch.message": "어떤 언어를 일시적으로 전환 하시겠습니까?"
 }
