@@ -157,9 +157,9 @@ let settingsDisposable = vscode.commands.registerCommand('translates.settings', 
 let switchLangDisposable = vscode.commands.registerCommand('translates.switch', async function () {
     prompt(locale['switch.message'], langTo || vscode.workspace.getConfiguration().get('google-translate.firstLanguage'))
         .then(val => {
-            if (!val) return;
+            if (val === undefined) return;
             langTo = val;
-            vscode.window.showInformationMessage(locale['switch.success'] + val);
+            vscode.window.showInformationMessage(locale['switch.success'] + (val || vscode.workspace.getConfiguration().get('google-translate.firstLanguage')));
         });
 });
 
