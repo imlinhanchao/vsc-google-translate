@@ -4,6 +4,7 @@
     "translateAndReplace.title": "Traduire et remplacer",
     "translateCandidateResult.title": "Résultats des suggestions de traduction",
     "translationHoverSwitch.title": "Commutateur de vol stationnaire",
+    "translationSettings.title": "Réglages",
     "switchFunctionTranslation.description": "Interrupteur de fonction. Par exemple, il existe une fonction nommée \"PostCreateReceipt\". Remplacez-le par \"Post Create Receipt\" avant de traduire.",
     "serverDomain.description": "Vous pouvez entrer un domaine de traduction Google plus rapide si nécessaire.",
     "firstLanguage.description": "Toutes les langues ont été traduites dans cette langue.",

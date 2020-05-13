@@ -7,5 +7,9 @@
     "on.text": "açık",
     "off.text": "yakın",
     "on.tooltip": "Fareyle üzerine gelindiğinde çeviriyi açma",
-    "off.tooltip": "Fareyle üzerine gelindiğinde çeviriyi kapatma"
+    "off.tooltip": "Fareyle üzerine gelindiğinde çeviriyi kapatma",
+    "like.extension": "Bu uzantıyı beğendiniz mi (Google Translate)? Nazik olumlu yorumlarınızı almayı umuyoruz.",
+    "like.ok": "Evet",
+    "like.no": "Hayır",
+    "like.later": "Daha sonra hatırlat"
 }

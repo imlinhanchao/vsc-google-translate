@@ -110,6 +110,7 @@ function getConfig() {
 }
 
 module.exports = async (word, l) => {
+    if (word == '') return null;
     config = getConfig();
     let lang = {
         from: 'auto',

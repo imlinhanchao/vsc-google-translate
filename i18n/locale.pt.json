@@ -7,5 +7,9 @@
     "on.text": "Aberto",
     "off.text": "Fechar",
     "on.tooltip": "Ativar tradução instantânea",
-    "off.tooltip": "Desativar tradução instantânea"
+    "off.tooltip": "Desativar tradução instantânea",
+    "like.extension": "Você gosta desta extensão (Google Translate)? Espero receber seus comentários gentilmente favoráveis.",
+    "like.ok": "sim",
+    "like.no": "Não",
+    "like.later": "Lembrar mais tarde"
 }

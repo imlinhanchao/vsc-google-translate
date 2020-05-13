@@ -7,7 +7,11 @@
     "on.text": "aperto",
     "off.text": "vicino",
     "on.tooltip": "Attiva la traduzione al passaggio del mouse",
-    "off.tooltip": "Disattiva la traduzione al passaggio del mouse"
+    "off.tooltip": "Disattiva la traduzione al passaggio del mouse",
+    "like.extension": "Ti piace questa estensione (Google Translate)? Spero di ottenere i vostri commenti gentilmente favorevoli.",
+    "like.ok": "sì",
+    "like.no": "No",
+    "like.later": "Ricordalo dopo"
 }
 
 

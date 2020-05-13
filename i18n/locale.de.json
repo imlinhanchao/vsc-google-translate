@@ -7,5 +7,9 @@
     "on.text": "Öffnen",
     "off.text": "Schliessen",
     "on.tooltip": "Aktivieren Sie die Hover-Übersetzung",
-    "off.tooltip": "Deaktivieren Sie die Hover-Übersetzung"
+    "off.tooltip": "Deaktivieren Sie die Hover-Übersetzung",
+    "like.extension": "Gefällt dir diese Erweiterung (Google Translate)? Ich hoffe, Ihre freundlichen positiven Kommentare zu erhalten.",
+    "like.ok": "Ja",
+    "like.no": "Nein",
+    "like.later": "Erinnere mich später"
 }

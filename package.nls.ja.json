@@ -4,6 +4,7 @@
     "translateAndReplace.title": "翻訳と置換",
     "translateCandidateResult.title": "翻訳候補の結果",
     "translationHoverSwitch.title": "ホバー変換スイッチ",
+    "translationSettings.title": "設定",
     "switchFunctionTranslation.description": "機能変換スイッチ。たとえば、「PostCreateReceipt」という名前の関数があります。翻訳する前に「Post Create Receipt」に変更してください。",
     "serverDomain.description": "必要に応じて、より高速なGoogle翻訳ドメインに入力できます。",
     "firstLanguage.description": "すべての言語がこの言語に翻訳されます。",

@@ -12,7 +12,7 @@
         "Japanese",
         "Korean"
     ],
-    "version": "1.1.2",
+    "version": "1.1.3",
     "repository": "https://github.com/imlinhanchao/vsc-google-translate",
     "engines": {
         "vscode": "^1.30.0"
@@ -28,7 +28,8 @@
         "onCommand:translates.clipboard",
         "onCommand:translates.replace",
         "onCommand:translates.hover",
-        "onCommand:translates.candidate"
+        "onCommand:translates.candidate",
+        "onCommand:translates.Settings"
     ],
     "main": "./src/extension",
     "contributes": {
@@ -36,27 +37,37 @@
         "commands": [
             {
                 "command": "translates.translates",
+                "category": "Google Translate",
                 "title": "%translates.title%"
             },
             {
                 "command": "translates.clipboard",
+                "category": "Google Translate",
                 "title": "%translateAndCopy.title%"
             },
             {
                 "command": "translates.replace",
+                "category": "Google Translate",
                 "title": "%translateAndReplace.title%"
             },
             {
                 "command": "translates.candidate",
+                "category": "Google Translate",
                 "title": "%translateCandidateResult.title%"
             },
             {
                 "command": "translates.hover",
+                "category": "Google Translate",
                 "title": "%translationHoverSwitch.title%",
                 "icon": {
                     "light": "./asserts/translate.svg",
                     "dark": "./asserts/translate-dark.svg"
                 }
+            },
+            {
+                "command": "translates.Settings",
+                "category": "Google Translate",
+                "title": "%translationSettings.title%"
             }
         ],
         "keybindings": [

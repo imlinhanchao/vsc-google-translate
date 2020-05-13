@@ -1,7 +1,8 @@
 const vscode = require('vscode');
 const clipboardy = require('clipboardy');
 const tranlate = require('./tranlate');
-let locale = require('../i18n')();
+const locale = require('../i18n')();
+const open = require('child_process');
 
 let currentWord = {
     text: '',
@@ -11,6 +12,7 @@ let currentWord = {
 
 
 let hoverOpen = false;
+let usetimes = 0;
 
 let barItem = {
     word: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left),
@@ -33,6 +35,7 @@ function selectionText() {
 function initSetting(cxt) {
     context = cxt;
     hoverOpen = cxt.globalState.get('hover') || false;
+    usetimes = cxt.globalState.get('usetimes') || 0;
     
     cxt.globalState.update('hover', hoverOpen);
 
@@ -40,6 +43,35 @@ function initSetting(cxt) {
     barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? locale['on.text'] : locale['off.text']}`;
     barItem.hover.command = 'translates.hover'
     barItem.hover.show();
+
+    //noticeComment();
+}
+
+function noticeComment() {
+    context.globalState.update('notice', false);
+    let notice = context.globalState.get('notice');
+    if (!notice && usetimes > 100) {
+        confirm(locale['like.extension'], [locale['like.ok'], locale['like.no'], locale['like.later']])
+            .then((option) => {
+                switch(option) {
+                    case locale['like.ok']:
+                        open.exec('start https://marketplace.visualstudio.com/items?itemName=hancel.google-translate');
+                        context.globalState.update('notice', false);
+                        break;
+                    case locale['like.no']:
+                        context.globalState.update('notice', true);
+                        break;
+                    case locale['like.later']:
+                        usetimes = 75;
+                        context.globalState.update('usetimes', usetimes);
+                        context.globalState.update('notice', false);
+                        break;
+                }
+            })
+            .catch(e => console.log(e));
+    } else if(!notice) {
+        context.globalState.update('usetimes', ++usetimes);
+    }
 }
 
 let hoverDisposable = vscode.languages.registerHoverProvider({scheme: 'file'}, {
@@ -64,8 +96,10 @@ let hoverDisposable = vscode.languages.registerHoverProvider({scheme: 'file'}, {
 
         try {
             let trans = await tranlate(editor.document.getText(selection));
+            if (!trans) return;
             let word = trans.word    
             let pre = `**[Google Translate](https://translate.google.cn/?sl=auto&tl=${trans.lang.to}&text=${escape(trans.text)})**\n\n`;
+            noticeComment();
             return new vscode.Hover(pre + word.replace(/\r\n/g, '  \r\n'));
         } catch (error) {
             return new vscode.Hover('**[Error](https://github.com/imlinhanchao/vsc-google-translate/issues)**\n\n' + error.message);
@@ -85,8 +119,10 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
     let candidate = [];
     try {
         let trans = await tranlate(text);
+        if (!trans) return;
         word = trans.word
         candidate = trans.candidate
+        noticeComment();
     } catch (error) {
         return vscode.window.showInformationMessage(error.message);
     }
@@ -114,6 +150,10 @@ let switchDisposable = vscode.commands.registerCommand('translates.hover', async
     vscode.window.showInformationMessage(hoverOpen ? locale["hoverOn.message"] : locale["hoverOff.message"]);
 });
 
+let settingsDisposable = vscode.commands.registerCommand('translates.Settings', async function () {
+    vscode.commands.executeCommand('workbench.action.openSettings', 'google-translate' );
+});
+
 let copyDisposable = vscode.commands.registerCommand('translates.clipboard', async function () {
     let text = selectionText(), word = '';
     if (text == '') return;
@@ -124,8 +164,10 @@ let copyDisposable = vscode.commands.registerCommand('translates.clipboard', asy
             barItem.word.show();
             barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
             let trans = await tranlate(text);
+            if (!trans) return;
             barItem.word.hide();
             word = trans.word;
+            noticeComment();
         } else {
             word = currentWord.word;
         }
@@ -150,8 +192,10 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
             barItem.word.show();
             barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
             let trans = await tranlate(text);
+            if (!trans) return;
             barItem.word.hide();
             word = trans.word;
+            noticeComment();
         } else {
             word = currentWord.word;
         }
@@ -176,7 +220,9 @@ let canDisposable = vscode.commands.registerCommand('translates.candidate', asyn
             barItem.word.show();
             barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
             currentWord = await tranlate(text);
+            if (!currentWord) return;
             barItem.word.hide();
+            noticeComment();
         }
 
         let items = [];
@@ -194,6 +240,12 @@ let canDisposable = vscode.commands.registerCommand('translates.candidate', asyn
     }
 });
 
+function confirm(message, options) {
+    return new Promise((resolve, reject) => {
+        return vscode.window.showInformationMessage(message, ...options).then(resolve);
+    });
+}
+
 module.exports = {
     initSetting,
     hoverDisposable,
@@ -201,5 +253,6 @@ module.exports = {
     switchDisposable,
     copyDisposable,
     replaceDisposable,
-    canDisposable
+    canDisposable,
+    settingsDisposable
 }

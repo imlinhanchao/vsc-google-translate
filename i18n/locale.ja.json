@@ -7,5 +7,9 @@
     "on.text": "開く",
     "off.text": "閉じる",
     "on.tooltip": "ホバー翻訳をオンにする",
-    "off.tooltip": "ホバー翻訳をオフにする"
+    "off.tooltip": "ホバー翻訳をオフにする",
+    "like.extension": "この拡張機能（Google Translate）は気に入りましたか？あなたの親切なコメントを期待しています。",
+    "like.ok": "はい",
+    "like.no": "ノー",
+    "like.later": "後で思い出させる"
 }

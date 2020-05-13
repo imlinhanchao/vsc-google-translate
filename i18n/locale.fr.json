@@ -7,5 +7,9 @@
     "on.text": "Ouverte",
     "off.text": "Fermer",
     "on.tooltip": "Activer la traduction en survol",
-    "off.tooltip": "Traduction de Turn Hover"
+    "off.tooltip": "Traduction de Turn Hover",
+    "like.extension": "Aimez-vous cette extension (Google Translate)? J'espère obtenir vos commentaires favorables.",
+    "like.ok": "Oui",
+    "like.no": "Non",
+    "like.later": "Rappeler plus tard"
 }

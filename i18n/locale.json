@@ -7,5 +7,9 @@
     "on.text": "On",
     "off.text": "Off",
     "on.tooltip": "Turn On Hover Translate",
-    "off.tooltip": "Turn Off Hover Translate"
+    "off.tooltip": "Turn Off Hover Translate",
+    "like.extension": "Do you like this extension (Google Translate)? Hope to get your kindly favorable comments.",
+    "like.ok": "Yes",
+    "like.no": "No",
+    "like.later": "Remind later"
 }

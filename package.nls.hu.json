@@ -4,6 +4,7 @@
     "translateAndReplace.title": "Fordítás és csere",
     "translateCandidateResult.title": "Fordítási javaslat eredményei",
     "translationHoverSwitch.title": "Vigye a kapcsolót",
+    "translationSettings.title": "Beállítások",
     "switchFunctionTranslation.description": "Funkció kapcsoló. Például van egy \"PostCreateReceipt\" nevű funkció. A fordítás előtt változtassa meg \"Post Create Receipt\" elemre.",
     "serverDomain.description": "Szükség szerint megadhat egy gyorsabb Google fordítási domaint.",
     "firstLanguage.description": "Minden nyelvet lefordítottak erre a nyelvre.",

@@ -4,6 +4,7 @@
     "translateAndReplace.title": "Преведете и заменете",
     "translateCandidateResult.title": "Резултати от предложения за превод",
     "translationHoverSwitch.title": "Превключвател на курсора",
+    "translationSettings.title": "Настройки",
     "switchFunctionTranslation.description": "Функционален превключвател. Например, има функция, наречена \"PostCreateReceipt\". Променете го на \"Post Create Receipt\", преди да преведете.",
     "serverDomain.description": "Можете да въведете по-бърз домейн за превод на Google, ако е необходимо.",
     "firstLanguage.description": "Всички езици са преведени на този език.",

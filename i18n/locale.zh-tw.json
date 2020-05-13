@@ -7,5 +7,9 @@
     "on.text": "開啟",
     "off.text": "關閉",
     "on.tooltip": "開啟懸停翻譯",
-    "off.tooltip": "關閉懸停翻譯"
+    "off.tooltip": "關閉懸停翻譯",
+    "like.extension": "您喜歡這個擴展嗎？給我一個好評吧！",
+    "like.ok": "好啊",
+    "like.no": "不要",
+    "like.later": "等等再説"
 }

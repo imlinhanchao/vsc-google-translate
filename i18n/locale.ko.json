@@ -7,5 +7,9 @@
     "on.text": "오픈",
     "off.text": "닫기",
     "on.tooltip": "호버 번역 켜기",
-    "off.tooltip": "호버 번역 끄기"
+    "off.tooltip": "호버 번역 끄기",
+    "like.extension": "이 확장 프로그램 (Google Translate) 이 마음에 드십니까? 친절하게 유리한 의견을 얻을 수 있기를 바랍니다.",
+    "like.ok": "예",
+    "like.no": "아니",
+    "like.later": "나중에 알림"
 }
