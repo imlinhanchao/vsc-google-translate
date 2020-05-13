@@ -124,8 +124,13 @@ module.exports = async (word, l) => {
     }
 
     let tran = await translate(word, lang);
-    if (!l && tran.word.replace(/\s/g, '') == word.replace(/\s/g, '') || !tran.word.trim()) {
+    if (tran.word.replace(/\s/g, '') == word.replace(/\s/g, '') || !tran.word.trim()) {
         lang.to = config['google-translate.secondLanguage'];
+        let tranSecond = await translate(word, lang);
+        if (tranSecond.word) tran = tranSecond;
+    }
+    if (l && tran.word.replace(/\s/g, '') == word.replace(/\s/g, '')) {
+        lang.to = config['google-translate.firstLanguage'];
         let tranSecond = await translate(word, lang);
         if (tranSecond.word) tran = tranSecond;
     }
