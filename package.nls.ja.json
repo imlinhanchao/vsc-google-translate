@@ -10,6 +10,7 @@
     "serverDomain.description": "必要に応じて、より高速なGoogle翻訳ドメインに入力できます。",
     "firstLanguage.description": "すべての言語がこの言語に翻訳されます。",
     "secondLanguage.description": "それが第一言語である場合、彼はこの言語に翻訳されます",
+    "maxSizeOfResult.description": "ステータスバーとメッセージボックスに表示される結果の最大長。この長さを超えると、省略記号に置き換えられます。",
     "firstLanguage.default": "ja"
 }
 

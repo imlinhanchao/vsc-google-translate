@@ -10,5 +10,6 @@
     "serverDomain.description": "妳可以根據需要填寫速度更快的 Google 翻譯域名。",
     "firstLanguage.description": "所有的語言都將被翻譯為這個語言。",
     "secondLanguage.description": "如果是第壹語言，他將會被翻譯成這個語言。",
+    "maxSizeOfResult.description": "顯示於狀態欄與消息框的結果最大長度，超過這個長度將以省略號代替。",
     "firstLanguage.default": "zh-tw"
 }

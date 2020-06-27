@@ -10,5 +10,6 @@
     "serverDomain.description": "Szükség szerint megadhat egy gyorsabb Google fordítási domaint.",
     "firstLanguage.description": "Minden nyelvet lefordítottak erre a nyelvre.",
     "secondLanguage.description": "Ha a lefordítandó tartalom első nyelv, akkor lefordítják erre a nyelvre.",
+    "maxSizeOfResult.description": "Az eredmény sávjában és az üzenet mezőben megjelenített maximális hossz. Ha meghaladja ezt a hosszúságot, azt ellipszis váltja fel.",
     "firstLanguage.default": "hu"
 }

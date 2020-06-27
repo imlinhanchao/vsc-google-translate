@@ -10,5 +10,6 @@
     "serverDomain.description": "필요에 따라 더 빠른 Google 번역 도메인을 입력 할 수 있습니다.",
     "firstLanguage.description": "모든 언어가 해당 언어로 번역되었습니다.",
     "secondLanguage.description": "번역 할 내용이 모국어 인 경우 해당 언어로 번역됩니다.",
+    "maxSizeOfResult.description": "상태 표시 줄과 메시지 상자에 표시되는 결과의 최대 길이이 길이를 초과하면 줄임표로 바뀝니다.",
     "firstLanguage.default": "ko"
 }

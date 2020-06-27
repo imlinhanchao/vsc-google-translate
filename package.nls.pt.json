@@ -10,6 +10,7 @@
     "serverDomain.description": "Você pode inserir um domínio de tradução do Google mais rápido, conforme necessário.",
     "firstLanguage.description": "Todos os idiomas foram traduzidos para esse idioma.",
     "secondLanguage.description": "Se o conteúdo a ser traduzido for o primeiro idioma, ele será traduzido para esse idioma.",
+    "maxSizeOfResult.description": "O comprimento máximo do resultado exibido na barra de status e na caixa de mensagem. Se exceder esse comprimento, será substituído por uma elipse.",
     "firstLanguage.default": "pt"
 }
 

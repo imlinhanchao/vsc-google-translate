@@ -10,7 +10,7 @@ let currentWord = {
     candidate: []
 };
 
-
+let maxSize = vscode.workspace.getConfiguration().get('google-translate.maxSizeOfResult');
 let hoverOpen = false;
 let usetimes = 0;
 let langTo = undefined;
@@ -129,14 +129,14 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
 
     currentWord = { word, text, candidate };
 
-    vscode.window.showInformationMessage(`${text.trim().slice(0, 100).trim() + '... '}: ${word.trim().slice(0, 100).trim() + '... '}`);
-
     barItem.word.tooltip = word;
-    if(text.length > 10) text = text.trim().slice(0, 10).trim() + '... '
-    if(word.length > 10) word = word.trim().slice(0, 10).trim() + '...'
+    if(text.length > maxSize) text = text.trim().slice(0, maxSize).trim() + '... '
+    if(word.length > maxSize) word = word.trim().slice(0, maxSize).trim() + '...'
     barItem.word.text = `${text.trim()}: ${word.trim()}`;
     barItem.word.command = 'translates.clipboard'
-
+    
+    vscode.window.showInformationMessage(`${text}: ${word}`);
+    
     candidate.length ? barItem.candidate.show() : barItem.candidate.hide();
     barItem.candidate.text = `$(ellipsis)`
     barItem.candidate.command = 'translates.candidate'
@@ -159,6 +159,11 @@ let switchLangDisposable = vscode.commands.registerCommand('translates.switch', 
         .then(val => {
             if (val === undefined) return;
             langTo = val;
+            currentWord = {
+                text: '',
+                word: '',
+                candidate: []
+            };
             vscode.window.showInformationMessage(locale['switch.success'] + (val || vscode.workspace.getConfiguration().get('google-translate.firstLanguage')));
         });
 });
@@ -213,7 +218,7 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
             editBuilder.replace(selection, word);
         })
         
-        vscode.window.showInformationMessage(`${text.trim().slice(0, 100).trim() + '... '} => ${word.trim().slice(0, 100).trim()}`);
+        vscode.window.showInformationMessage(`${text.trim().slice(0, maxSize).trim() + '... '} => ${word.trim().slice(0, maxSize).trim()}`);
     } catch (error) {
         return vscode.window.showInformationMessage(error.message);
     }
@@ -252,6 +257,9 @@ let canDisposable = vscode.commands.registerCommand('translates.candidate', asyn
 vscode.workspace.onDidChangeConfiguration(function(event) {
     if(event.affectsConfiguration('google-translate.firstLanguage')) {
         langTo = undefined;
+    }
+    if (event.affectsConfiguration('google-translate.maxSizeOfResult')) {
+        maxSize = vscode.workspace.getConfiguration().get('google-translate.maxSizeOfResult');
     }
 });
 

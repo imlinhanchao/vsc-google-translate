@@ -10,5 +10,6 @@
     "serverDomain.description": "You can set it to the fastest google translate domain.",
     "firstLanguage.description": "All language will tranlate to this language first.",
     "secondLanguage.description": "It will be translated into this language if it's the first language.",
+    "maxSizeOfResult.description": "The maximum length of the result displayed in the status bar and message box. If it exceeds this length, it will be replaced by an ellipsis.",
     "firstLanguage.default": "zh-cn"
 }

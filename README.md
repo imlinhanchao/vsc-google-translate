@@ -41,6 +41,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.1.4
+1. Add a setting item `maxSizeOfResult` to set the maximum display characters for the translated content and results of the status bar and message box.
+
 ### 1.1.3
 1. Fix issue that the translation result is empty when the first language is not Chinese.
 2. Add the function of temporarily switching the translation language.

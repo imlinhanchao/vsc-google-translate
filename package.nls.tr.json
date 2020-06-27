@@ -10,5 +10,6 @@
     "serverDomain.description": "Gerektiğinde daha hızlı bir Google çeviri alan adı girebilirsiniz.",
     "firstLanguage.description": "Tüm diller bu dile çevrildi.",
     "secondLanguage.description": "Çevrilecek içerik birinci dil ise, o dile çevrilecektir.",
+    "maxSizeOfResult.description": "Durum çubuğunda ve mesaj kutusunda görüntülenen sonucun maksimum uzunluğu. Bu uzunluğu aşarsa, yerini bir üç nokta alır.",
     "firstLanguage.default": "tr"
 }
