@@ -1,10 +1,10 @@
+English Readme / [简体中文说明](README.zh-cn.md) / [繁體中文說明](README.zh-tw.md)
+
 # Google Translate Extension
 
 Based on [Google Translate](https://translate.google.cn). No API Key translation extension required.
 
-❤ [Sponsor me](https://www.paypal.me/imlinhanchao) / [赞助开发者](https://afdian.net/@imlinhanchao)
-
-English Readme / [简体中文说明](README.zh-cn.md) / [繁體中文說明](README.zh-tw.md)
+❤ [Sponsor me](https://www.paypal.me/imlinhanchao) / [赞助开发者](http://sponsor.hancel.org/)
 
 ## Features
 
