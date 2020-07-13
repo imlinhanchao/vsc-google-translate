@@ -43,6 +43,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.1.5
+1. 修復了無法自動在 MacOS 和 Linux 上啟動擴展名主頁的問題。
+
 ### 1.1.4
 1. 添加設置項目 `max Size Of Result` 設置狀態欄和消息框翻譯內容與結果的最大顯示字符。
 

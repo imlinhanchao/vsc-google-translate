@@ -48,6 +48,19 @@ function initSetting(cxt) {
     //noticeComment();
 }
 
+function getExecCommand() {
+    let cmd = 'explorer';
+    if (process.platform == 'win32') {
+        cmd = 'explorer';
+    } else if (process.platform == 'linux') {
+        cmd = 'xdg-open';
+    } else if (process.platform == 'darwin') {
+        cmd = 'open';
+    }
+    
+    return `${cmd} https://marketplace.visualstudio.com/items?itemName=hancel.google-translate`
+}
+
 function noticeComment() {
     let notice = context.globalState.get('notice');
     if (!notice && usetimes > 100) {
@@ -55,7 +68,7 @@ function noticeComment() {
             .then((option) => {
                 switch(option) {
                     case locale['like.ok']:
-                        open.exec('start https://marketplace.visualstudio.com/items?itemName=hancel.google-translate');
+                        open.exec(getExecCommand());
                         context.globalState.update('notice', true);
                         break;
                     case locale['like.no']:

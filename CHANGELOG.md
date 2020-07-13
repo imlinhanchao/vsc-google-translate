@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.1.5] - 2020-07-13
+- Fixed launch extension home page failed at MacOS and Linux.
+
 ## [1.1.4] - 2020-06-27
 - Add a setting item `maxSizeOfResult` to set the maximum display characters for the translated content and results of the status bar and message box.
 

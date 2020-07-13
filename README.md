@@ -41,6 +41,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.1.5
+1. Fixed launch extension home page failed at MacOS and Linux.
+
 ### 1.1.4
 1. Add a setting item `maxSizeOfResult` to set the maximum display characters for the translated content and results of the status bar and message box.
 
