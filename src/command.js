@@ -210,30 +210,41 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
     if (!editor) {
         return; // No open text editor
     }
-    let selection = editor.selection;
-    let text = editor.document.getText(selection), word = '';
+    let length = editor.selections.length;
+    let msg = '';
+    let offsets = {};
+    for (let i = 0; i < length; i++) {
+        let selection = editor.selections[i];
+        let text = editor.document.getText(selection), word = '';
+    
+        try {
+            if (currentWord.text == '' || currentWord.text != text) {
+                barItem.candidate.hide();
+                barItem.word.show();
+                barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
+                let trans = await translate(text, langTo);
+                if (!trans) return;
+                barItem.word.hide();
+                word = trans.word;
+                noticeComment();
+            } else {
+                word = currentWord.word;
+            }
 
-    try {
-        if (currentWord.text == '' || currentWord.text != text) {
-            barItem.candidate.hide();
-            barItem.word.show();
-            barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
-            let trans = await translate(text, langTo);
-            if (!trans) return;
-            barItem.word.hide();
-            word = trans.word;
-            noticeComment();
-        } else {
-            word = currentWord.word;
+            if(offsets[selection.start.line]) {
+                selection.anchor._character += offsets[selection.start.line];
+                selection.active._character += offsets[selection.start.line];
+            }
+
+            offsets[selection.start.line] = (offsets[selection.start.line] || 0) + word.length - text.length;
+            
+            editor.edit(editBuilder => {
+                editBuilder.replace(selection, word);
+            })
+            
+        } catch (error) {
+            return vscode.window.showInformationMessage(error.message);
         }
-
-        editor.edit(editBuilder => {
-            editBuilder.replace(selection, word);
-        })
-        
-        vscode.window.showInformationMessage(`${text.trim().slice(0, maxSize).trim() + '... '} => ${word.trim().slice(0, maxSize).trim()}`);
-    } catch (error) {
-        return vscode.window.showInformationMessage(error.message);
     }
 });
 
