@@ -9,11 +9,12 @@
     "on.tooltip": "Attiva la traduzione al passaggio del mouse",
     "off.tooltip": "Disattiva la traduzione al passaggio del mouse",
     "like.extension": "Ti piace questa estensione (Google Translate)? Spero di ottenere i vostri commenti gentilmente favorevoli.",
-    "like.ok": "sì",
+    "like.ok": "sï¿½",
     "like.no": "No",
     "like.later": "Ricordalo dopo",
-    "switch.success": "La lingua di traduzione è stata temporaneamente cambiata in ",
-    "switch.message": "In quale lingua vuoi passare temporaneamente?"
+    "switch.success": "La lingua di traduzione ï¿½ stata temporaneamente cambiata in ",
+    "switch.message": "In quale lingua vuoi passare temporaneamente?",
+    "replace.message": "Tutte le selezioni sono state tradotte."
 }
 
 

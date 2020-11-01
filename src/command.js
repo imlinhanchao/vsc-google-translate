@@ -94,29 +94,34 @@ let hoverDisposable = vscode.languages.registerHoverProvider({scheme: 'file'}, {
             return; // No open text editor
         }
 
-        let selection = editor.selection;
+        let length = editor.selections.length;
 
-        let line = { 
-            begin: Math.min(selection.anchor.line, selection.active.line),
-            end: Math.max(selection.anchor.line, selection.active.line)
-        }, character = {
-            begin: Math.min(selection.anchor.character, selection.active.character),
-            end: Math.max(selection.anchor.character, selection.active.character)
-        };
-
-        if (line.begin > position.line || character.begin > position.character) return;
-        if (line.end < position.line || character.end < position.character) return;
-
-        try {
-            let trans = await translate(editor.document.getText(selection), langTo);
-            if (!trans) return;
-            let word = trans.word    
-            let pre = `**[Google Translate](https://translate.google.cn/?sl=auto&tl=${trans.lang.to}&text=${encodeURI(trans.text)})**\n\n`;
-            noticeComment();
-            return new vscode.Hover(pre + word.replace(/\r\n/g, '  \r\n'));
-        } catch (error) {
-            return new vscode.Hover('**[Error](https://github.com/imlinhanchao/vsc-google-translate/issues)**\n\n' + error.message);
+        for (let i = 0; i < length; i++) {
+            let selection = editor.selections[i];
+    
+            let line = { 
+                begin: Math.min(selection.anchor.line, selection.active.line),
+                end: Math.max(selection.anchor.line, selection.active.line)
+            }, character = {
+                begin: Math.min(selection.anchor.character, selection.active.character),
+                end: Math.max(selection.anchor.character, selection.active.character)
+            };
+    
+            if (line.begin > position.line || character.begin > position.character) continue;
+            if (line.end < position.line || character.end < position.character) continue;
+    
+            try {
+                let trans = await translate(editor.document.getText(selection), langTo);
+                if (!trans) return;
+                let word = trans.word    
+                let pre = `**[Google Translate](https://translate.google.cn/?sl=auto&tl=${trans.lang.to}&text=${encodeURI(trans.text)})**\n\n`;
+                noticeComment();
+                return new vscode.Hover(pre + word.replace(/\r\n/g, '  \r\n'));
+            } catch (error) {
+                return new vscode.Hover('**[Error](https://github.com/imlinhanchao/vsc-google-translate/issues)**\n\n' + error.message);
+            }
         }
+
     }
 })
 
@@ -213,9 +218,11 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
     let length = editor.selections.length;
     let msg = '';
     let offsets = {};
+    let text, word;
     for (let i = 0; i < length; i++) {
         let selection = editor.selections[i];
-        let text = editor.document.getText(selection), word = '';
+        text = editor.document.getText(selection);
+        word = '';
     
         try {
             if (currentWord.text == '' || currentWord.text != text) {
@@ -246,6 +253,10 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
             return vscode.window.showInformationMessage(error.message);
         }
     }
+
+    if (length == 1) vscode.window.showInformationMessage(`${text.trim().slice(0, maxSize).trim()
+        + (text.length > maxSize ? '... ' : '')} => ${word.trim().slice(0, maxSize).trim() + (word.length > maxSize ? '... ' : '')}`);
+    else vscode.window.showInformationMessage(locale['replace.message'])
 });
 
 let canDisposable = vscode.commands.registerCommand('translates.candidate', async function () {

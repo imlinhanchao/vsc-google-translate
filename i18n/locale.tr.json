@@ -13,5 +13,6 @@
     "like.no": "Hayır",
     "like.later": "Daha sonra hatırlat",
     "switch.success": "Çeviri dili geçici olarak olarak değiştirildi ",
-    "switch.message": "Geçici olarak hangi dile geçmek istiyorsunuz?"
+    "switch.message": "Geçici olarak hangi dile geçmek istiyorsunuz?",
+    "replace.message": "Tüm seçimler çevrildi."
 }

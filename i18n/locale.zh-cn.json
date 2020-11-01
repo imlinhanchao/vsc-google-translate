@@ -13,5 +13,6 @@
     "like.no": "不要",
     "like.later": "等等再说",
     "switch.success": "翻译语言已暂时切换为 ",
-    "switch.message": "你要临时切换翻译到什么语言？"
+    "switch.message": "你要临时切换翻译到什么语言？",
+    "replace.message": "所有选择均已翻译。"
 }

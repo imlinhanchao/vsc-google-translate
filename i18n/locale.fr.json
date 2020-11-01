@@ -13,5 +13,6 @@
     "like.no": "Non",
     "like.later": "Rappeler plus tard",
     "switch.success": "La langue de traduction a été temporairement basculée sur ",
-    "switch.message": "Dans quelle langue souhaitez-vous basculer temporairement?"
+    "switch.message": "Dans quelle langue souhaitez-vous basculer temporairement?",
+    "replace.message": "Toutes les sélections ont été traduites."
 }

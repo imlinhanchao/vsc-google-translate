@@ -13,5 +13,6 @@
     "like.no": "Nein",
     "like.later": "Erinnere mich später",
     "switch.success": "Die Übersetzungssprache wurde vorübergehend umgestellt ",
-    "switch.message": "In welche Sprache möchten Sie vorübergehend wechseln?"
+    "switch.message": "In welche Sprache möchten Sie vorübergehend wechseln?",
+    "replace.message": "Alle Auswahlen wurden übersetzt."
 }

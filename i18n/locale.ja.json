@@ -13,5 +13,6 @@
     "like.no": "ノー",
     "like.later": "後で思い出させる",
     "switch.success": "翻訳言語が一時的に切り替えられました ",
-    "switch.message": "一時的にどの言語に切り替えたいですか？"
+    "switch.message": "一時的にどの言語に切り替えたいですか？",
+    "replace.message": "すべての選択が翻訳されました。"
 }

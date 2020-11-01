@@ -13,5 +13,6 @@
     "like.no": "Nem",
     "like.later": "Emlékeztess később",
     "switch.success": "A fordítási nyelv átmenetileg váltott ",
-    "switch.message": "Melyik nyelvre szeretne átmenetileg váltani?"
+    "switch.message": "Melyik nyelvre szeretne átmenetileg váltani?",
+    "replace.message": "Minden választást lefordítottak."
 }

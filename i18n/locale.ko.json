@@ -13,5 +13,6 @@
     "like.no": "아니",
     "like.later": "나중에 알림",
     "switch.success": "번역 언어가 일시적으로 ",
-    "switch.message": "어떤 언어를 일시적으로 전환 하시겠습니까?"
+    "switch.message": "어떤 언어를 일시적으로 전환 하시겠습니까?",
+    "replace.message": "모든 선택이 번역되었습니다."
 }
