@@ -43,6 +43,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.1.6
+1. 加入替换翻译与悬停翻译支持多选区功能。
+
 ### 1.1.5
 1. 修复了无法自动在 MacOS 和 Linux 上启动扩展名主页的问题。
 

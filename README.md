@@ -41,6 +41,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.1.6
+1. Add replace translation and hover translation support multi-selection feature.
+
 ### 1.1.5
 1. Fixed launch extension home page failed at MacOS and Linux.
 
