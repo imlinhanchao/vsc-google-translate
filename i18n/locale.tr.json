@@ -19,5 +19,6 @@
     "from.message": "Hangi dili algılamak istiyorsunuz?",
     "from.tip": "Dili algılamak",
     "swap.tip": "Hedef dili takas",
-    "swap.success": "Birinci ve ikinci hedef dil başarısını değiştirin."
+    "swap.success": "Birinci ve ikinci hedef dil başarısını değiştirin.",
+    "replace.message": "Tüm seçimler çevrildi."
 }

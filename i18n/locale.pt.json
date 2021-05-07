@@ -19,5 +19,6 @@
     "from.message": "Qual detecção de idioma você quer mudar?",
     "from.tip": "Detectar linguagem",
     "swap.tip": "Troca de linguagem de destino.",
-    "swap.success": "Swap primeiro e segundo sucesso de linguagem alvo."
+    "swap.success": "Swap primeiro e segundo sucesso de linguagem alvo.",
+    "replace.message": "Todas as seleções foram traduzidas."
 }

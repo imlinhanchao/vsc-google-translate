@@ -7,6 +7,9 @@ All notable changes to the "Google Translate" extension will be documented in th
 - Added swap first and second language command.
 - Added target and detect language setting status bar.
 
+## [1.1.6] - 2020-11-01
+- Add replace translation and hover translation support multi-selection feature.
+
 ## [1.1.5] - 2020-07-13
 - Fixed launch extension home page failed at MacOS and Linux.
 

@@ -9,7 +9,7 @@
     "on.tooltip": "Attiva la traduzione al passaggio del mouse",
     "off.tooltip": "Disattiva la traduzione al passaggio del mouse",
     "like.extension": "Ti piace questa estensione (Google Translate)? Spero di ottenere i vostri commenti gentilmente favorevoli.",
-    "like.ok": "sì",
+    "like.ok": "sï¿½",
     "like.no": "No",
     "like.later": "Ricordalo dopo",
     "switch.success": "La lingua di destinazione è stata passata a ",
@@ -19,7 +19,8 @@
     "from.message": "Che rileva la lingua vuoi cambiare?",
     "from.tip": "Rileva lingua",
     "swap.tip": "Swap doeltaal.",
-    "swap.success": "Swap primo e secondo successo della lingua di destinazione."
+    "swap.success": "Swap primo e secondo successo della lingua di destinazione.",
+    "replace.message": "Tutte le selezioni sono state tradotte."
 }
 
 

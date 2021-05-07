@@ -19,5 +19,6 @@
     "from.message": "Quelle langue détecte voulez-vous basculer?",
     "from.tip": "Détecter la langue",
     "swap.tip": "Échanger la langue cible",
-    "swap.success": "Échanger des premier et seconde succès de la langue cible."
+    "swap.success": "Échanger des premier et seconde succès de la langue cible.",
+    "replace.message": "Toutes les sélections ont été traduites."
 }

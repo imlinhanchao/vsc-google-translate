@@ -19,5 +19,6 @@
     "from.message": "您要切换哪种检测语言？",
     "from.tip": "检测语言",
     "swap.tip": "交换目标语言",
-    "swap.success": "交换第一和第二个目标语言成功。"
+    "swap.success": "交换第一和第二个目标语言成功。",
+    "replace.message": "所有选择均已翻译。"
 }

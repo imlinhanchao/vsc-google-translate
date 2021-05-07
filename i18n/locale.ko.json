@@ -19,5 +19,6 @@
     "from.message": "언어를 탐지하고 싶습니까?",
     "from.tip": "언어를 감지",
     "swap.tip": "대상 언어를 교체하십시오",
-    "swap.success": "첫 번째 및 두 번째 대상 언어 성공을 스왑하십시오."
+    "swap.success": "첫 번째 및 두 번째 대상 언어 성공을 스왑하십시오.",
+    "replace.message": "모든 선택이 번역되었습니다."
 }

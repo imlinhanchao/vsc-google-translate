@@ -19,5 +19,6 @@
     "from.message": "Melyik érzékeli a nyelvet?",
     "from.tip": "Nyelvfelismerés",
     "swap.tip": "Swap célnyelv",
-    "swap.success": "Cserélje ki az első és a második célnyelvi sikert."
+    "swap.success": "Cserélje ki az első és a második célnyelvi sikert.",
+    "replace.message": "Minden választást lefordítottak."
 }

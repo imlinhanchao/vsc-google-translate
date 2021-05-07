@@ -47,6 +47,9 @@ sudo yum install xsel
 3. Added swap first and second language command.
 4. Added target language and detect language setting status bar.
 
+### 1.1.6
+1. Add replace translation and hover translation support multi-selection feature.
+
 ### 1.1.5
 1. Fixed launch extension home page failed at MacOS and Linux.
 

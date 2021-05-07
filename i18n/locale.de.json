@@ -19,5 +19,6 @@
     "from.message": "Welche Sprache erkennen möchten Sie wechseln?",
     "from.tip": "Sprache erkennen",
     "swap.tip": "Swap Zielsprache",
-    "swap.success": "Swap erster und zweiter Ziel des Ziels."
+    "swap.success": "Swap erster und zweiter Ziel des Ziels.",
+    "replace.message": "Alle Auswahlen wurden übersetzt."
 }
