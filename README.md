@@ -41,6 +41,12 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.2.0
+1. Update switch target change language to save in setting.
+2. Added detect language setting command.
+3. Added swap first and second language command.
+4. Added target language and detect language setting status bar.
+
 ### 1.1.5
 1. Fixed launch extension home page failed at MacOS and Linux.
 

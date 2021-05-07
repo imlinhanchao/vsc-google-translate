@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.2.0] - 2021-05-07
+- Update switch target change language to save in setting.
+- Added detect language setting command.
+- Added swap first and second language command.
+- Added target and detect language setting status bar.
+
 ## [1.1.5] - 2020-07-13
 - Fixed launch extension home page failed at MacOS and Linux.
 
