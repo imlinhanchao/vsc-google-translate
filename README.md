@@ -41,7 +41,7 @@ sudo yum install xsel
 
 ## Release Notes
 
-### 1.2.0
+### 1.2.1
 1. Update switch target change language to save in setting.
 2. Added detect language setting command.
 3. Added swap first and second language command.
