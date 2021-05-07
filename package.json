@@ -56,9 +56,14 @@
                 "title": "%translateCandidateResult.title%"
             },
             {
-                "command": "translates.switch",
+                "command": "translates.detect",
                 "category": "Google Translate",
-                "title": "%translateSwitchLang.title%"
+                "title": "%translateDetectLang.title%"
+            },
+            {
+                "command": "translates.swap",
+                "category": "Google Translate",
+                "title": "%translateSwpLang.title%"
             },
             {
                 "command": "translates.hover",

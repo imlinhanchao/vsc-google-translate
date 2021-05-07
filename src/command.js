@@ -11,6 +11,7 @@ let currentWord = {
 };
 
 let maxSize = vscode.workspace.getConfiguration().get('google-translate.maxSizeOfResult');
+let langFrom;
 let hoverOpen = false;
 let usetimes = 0;
 let langTo = undefined;
@@ -19,6 +20,9 @@ let barItem = {
     word: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left),
     candidate: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left),
     hover: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
+    switchFrom: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
+    switchHr: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
+    switchTo: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
 }
 
 let context = null;
@@ -37,8 +41,24 @@ function initSetting(cxt) {
     context = cxt;
     hoverOpen = cxt.globalState.get('hover') || false;
     usetimes = cxt.globalState.get('usetimes') || 0;
+    langFrom = cxt.globalState.get('fromLang') || 'auto'
     
     cxt.globalState.update('hover', hoverOpen);
+
+    barItem.switchTo.tooltip = locale['switch.tip'];
+    barItem.switchTo.text = vscode.workspace.getConfiguration().get('google-translate.firstLanguage');
+    barItem.switchTo.command = 'translates.switch'
+    barItem.switchTo.show();
+
+    barItem.switchHr.tooltip = locale['swap.tip'];
+    barItem.switchHr.text = '$(arrow-right)';
+    barItem.switchHr.command = 'translates.swap';
+    barItem.switchHr.show();
+
+    barItem.switchFrom.tooltip = locale['from.tip'];
+    barItem.switchFrom.text = langFrom;
+    barItem.switchFrom.command = 'translates.detect'
+    barItem.switchFrom.show();
 
     barItem.hover.tooltip = !hoverOpen ? locale['on.tooltip'] : locale['off.tooltip'];
     barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? locale['on.text'] : locale['off.text']}`;
@@ -49,9 +69,9 @@ function initSetting(cxt) {
 }
 
 function getExecCommand() {
-    let cmd = 'explorer';
+    let cmd = 'start';
     if (process.platform == 'win32') {
-        cmd = 'explorer';
+        cmd = 'start';
     } else if (process.platform == 'linux') {
         cmd = 'xdg-open';
     } else if (process.platform == 'darwin') {
@@ -108,7 +128,7 @@ let hoverDisposable = vscode.languages.registerHoverProvider({scheme: 'file'}, {
         if (line.end < position.line || character.end < position.character) return;
 
         try {
-            let trans = await translate(editor.document.getText(selection), langTo);
+            let trans = await translate(editor.document.getText(selection), langTo, langFrom);
             if (!trans) return;
             let word = trans.word    
             let pre = `**[Google Translate](https://translate.google.cn/?sl=auto&tl=${trans.lang.to}&text=${encodeURI(trans.text)})**\n\n`;
@@ -131,7 +151,7 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
     let word = `${locale['failed.message']}...`;
     let candidate = [];
     try {
-        let trans = await translate(text, langTo);
+        let trans = await translate(text, langTo, langFrom);
         if (!trans) return;
         word = trans.word
         candidate = trans.candidate
@@ -177,8 +197,35 @@ let switchLangDisposable = vscode.commands.registerCommand('translates.switch', 
                 word: '',
                 candidate: []
             };
+            barItem.switchTo.text = langTo;
+            vscode.workspace.getConfiguration().update('google-translate.firstLanguage', langTo, true)
             vscode.window.showInformationMessage(locale['switch.success'] + (val || vscode.workspace.getConfiguration().get('google-translate.firstLanguage')));
         });
+});
+
+let fromLangDisposable = vscode.commands.registerCommand('translates.detect', async function () {
+    prompt(locale['from.message'], langFrom)
+        .then(val => {
+            if (val === undefined) return;
+            langFrom = val;
+            currentWord = {
+                text: '',
+                word: '',
+                candidate: []
+            };
+            context.globalState.update('fromLang', langFrom);
+            barItem.switchFrom.text = langFrom;
+            vscode.window.showInformationMessage(locale['from.success'] + langFrom);
+        });
+});
+
+let swapLangDisposable = vscode.commands.registerCommand('translates.swap', async function () {
+    let firstLang = vscode.workspace.getConfiguration().get('google-translate.firstLanguage');
+    let secondLang = vscode.workspace.getConfiguration().get('google-translate.secondLanguage');
+    barItem.switchTo.text = secondLang;
+    vscode.workspace.getConfiguration().update('google-translate.firstLanguage', secondLang, true)
+    vscode.workspace.getConfiguration().update('google-translate.secondLanguage', firstLang, true)
+    vscode.window.showInformationMessage(locale['swap.success']);
 });
 
 let copyDisposable = vscode.commands.registerCommand('translates.clipboard', async function () {
@@ -189,8 +236,8 @@ let copyDisposable = vscode.commands.registerCommand('translates.clipboard', asy
         if (currentWord.text == '') {
             barItem.candidate.hide();
             barItem.word.show();
-            barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
-            let trans = await translate(text, langTo);
+            barItem.word.text = `$(pulse) ${locale['wait.message']}...`;
+            let trans = await translate(text, langTo, langFrom);
             if (!trans) return;
             barItem.word.hide();
             word = trans.word;
@@ -211,7 +258,6 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
         return; // No open text editor
     }
     let length = editor.selections.length;
-    let msg = '';
     let offsets = {};
     for (let i = 0; i < length; i++) {
         let selection = editor.selections[i];
@@ -222,7 +268,7 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
                 barItem.candidate.hide();
                 barItem.word.show();
                 barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
-                let trans = await translate(text, langTo);
+                let trans = await translate(text, langTo, langFrom);
                 if (!trans) return;
                 barItem.word.hide();
                 word = trans.word;
@@ -257,7 +303,7 @@ let canDisposable = vscode.commands.registerCommand('translates.candidate', asyn
             barItem.candidate.hide();
             barItem.word.show();
             barItem.word.text = `$(pulse) ${locale['wait.message']}...`;        
-            currentWord = await translate(text, langTo);
+            currentWord = await translate(text, langTo, langFrom);
             if (!currentWord) return;
             barItem.word.hide();
             noticeComment();
@@ -281,6 +327,7 @@ let canDisposable = vscode.commands.registerCommand('translates.candidate', asyn
 vscode.workspace.onDidChangeConfiguration(function(event) {
     if(event.affectsConfiguration('google-translate.firstLanguage')) {
         langTo = undefined;
+        barItem.switchTo.text = vscode.workspace.getConfiguration().get('google-translate.firstLanguage');
     }
     if (event.affectsConfiguration('google-translate.maxSizeOfResult')) {
         maxSize = vscode.workspace.getConfiguration().get('google-translate.maxSizeOfResult');
@@ -311,5 +358,7 @@ module.exports = {
     replaceDisposable,
     canDisposable,
     switchLangDisposable,
+    fromLangDisposable,
+    swapLangDisposable,
     settingsDisposable
 }

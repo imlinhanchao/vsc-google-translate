@@ -14,6 +14,7 @@ function activate(context) {
     context.subscriptions.push(command.replaceDisposable);
     context.subscriptions.push(command.canDisposable);
     context.subscriptions.push(command.switchLangDisposable);
+    context.subscriptions.push(command.fromLangDisposable);
     context.subscriptions.push(command.settingsDisposable);
 }
 

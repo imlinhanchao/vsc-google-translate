@@ -109,11 +109,11 @@ function getConfig() {
     return values;
 }
 
-module.exports = async (word, l) => {
+module.exports = async (word, l, from='auto') => {
     if (word == '') return null;
     config = getConfig();
     let lang = {
-        from: 'auto',
+        from,
         to: l || config['google-translate.firstLanguage']
     };
 
@@ -129,6 +129,7 @@ module.exports = async (word, l) => {
         let tranSecond = await translate(word, lang);
         if (tranSecond.word) tran = tranSecond;
     }
+
     if (l && tran.word.replace(/\s/g, '') == word.replace(/\s/g, '')) {
         lang.to = config['google-translate.firstLanguage'];
         let tranSecond = await translate(word, lang);
@@ -140,3 +141,5 @@ module.exports = async (word, l) => {
     }
     return tran;
 };
+
+module.exports.getConfig = getConfig;

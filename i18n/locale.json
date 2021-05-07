@@ -12,6 +12,12 @@
     "like.ok": "Yes",
     "like.no": "No",
     "like.later": "Remind later",
-    "switch.success": "Translation language has been temporarily switched to ",
-    "switch.message": "Which language do you want to switch to temporarily?"
+    "switch.success": "Target language has been switched to ",
+    "switch.message": "Which target language do you want to switch?",
+    "switch.tip": "Target language",
+    "from.success": "Detect language has been switched to ",
+    "from.message": "Which detect language do you want to switch?",
+    "from.tip": "Detect language",
+    "swap.tip": "Swap target language",
+    "swap.success": "Swap first and second target language success."
 }
