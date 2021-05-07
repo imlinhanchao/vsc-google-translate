@@ -12,6 +12,12 @@
     "like.ok": "예",
     "like.no": "아니",
     "like.later": "나중에 알림",
-    "switch.success": "번역 언어가 일시적으로 ",
-    "switch.message": "어떤 언어를 일시적으로 전환 하시겠습니까?"
+    "switch.success": "대상 언어가 전환되었습니다 ",
+    "switch.message": "어떤 대상 언어를 전환하고 싶습니까?",
+    "switch.tip": "대상 언어",
+    "from.success": "언어 감지가 전환되었습니다 ",
+    "from.message": "언어를 탐지하고 싶습니까?",
+    "from.tip": "언어를 감지",
+    "swap.tip": "대상 언어를 교체하십시오",
+    "swap.success": "첫 번째 및 두 번째 대상 언어 성공을 스왑하십시오."
 }

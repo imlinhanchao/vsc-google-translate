@@ -5,6 +5,8 @@
     "translateCandidateResult.title": "Результаты предложения по переводу",
     "translationHoverSwitch.title": "Переключатель наведения",
     "translateSwitchLang.title": "Переключите целевой язык для перевода",
+    "translateDetectLang.title": "Сбросьте язык обнаружения для перевода",
+    "translateSwpLang.title": "Поменять первый и второй целевой язык",
     "translationSettings.title": "настройки",
     "switchFunctionTranslation.description": "Функциональный переключатель. Например, есть функция с именем «PostCreateReceipt». Измените его на «Post Create Receipt» перед переводом.",
     "serverDomain.description": "При необходимости вы можете ввести более быстрый домен перевода Google.",

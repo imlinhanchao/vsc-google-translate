@@ -5,6 +5,8 @@
     "translateCandidateResult.title": "翻譯候選結果",
     "translationHoverSwitch.title": "懸停翻譯開關",
     "translateSwitchLang.title": "切換目標語言進行翻譯",
+    "translateDetectLang.title": "重設檢測語言以翻譯",
+    "translateSwpLang.title": "交換第一個和第二個目標語言",
     "translationSettings.title": "擴展配置",
     "switchFunctionTranslation.description": "函數翻譯開關。例如：有壹個函數名為“PostCreateReceipt”。它將被變更為“Post Create Receipt”，然後再翻譯。",
     "serverDomain.description": "妳可以根據需要填寫速度更快的 Google 翻譯域名。",

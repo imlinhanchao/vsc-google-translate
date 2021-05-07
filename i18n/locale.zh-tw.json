@@ -12,6 +12,12 @@
     "like.ok": "好啊",
     "like.no": "不要",
     "like.later": "等等再説",
-    "switch.success": "翻譯語言已暫時切換為 ",
-    "switch.message": "你要臨時切換翻譯到什麼語言？"
+    "switch.success": "目標語言已切換到 ",
+    "switch.message": "您要切换翻譯到哪种语言？",
+    "switch.tip": "目標語言",
+    "from.success": "檢測語言已切換到 ",
+    "from.message": "您要切换哪种檢測语言？",
+    "from.tip": "檢測語言",
+    "swap.tip": "交換目標語言",
+    "swap.success": "交換第一和第二個目標語言成功。"
 }

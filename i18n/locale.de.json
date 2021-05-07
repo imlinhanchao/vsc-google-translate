@@ -12,6 +12,12 @@
     "like.ok": "Ja",
     "like.no": "Nein",
     "like.later": "Erinnere mich später",
-    "switch.success": "Die Übersetzungssprache wurde vorübergehend umgestellt ",
-    "switch.message": "In welche Sprache möchten Sie vorübergehend wechseln?"
+    "switch.success": "Zielsprache wurde aufgestellt ",
+    "switch.message": "Welche Zielsprache möchten Sie wechseln?",
+    "switch.tip": "Zielsprache",
+    "from.success": "Die Sprache erkennen wurde aufgestellt ",
+    "from.message": "Welche Sprache erkennen möchten Sie wechseln?",
+    "from.tip": "Sprache erkennen",
+    "swap.tip": "Swap Zielsprache",
+    "swap.success": "Swap erster und zweiter Ziel des Ziels."
 }

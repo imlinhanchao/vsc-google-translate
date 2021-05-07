@@ -5,6 +5,8 @@
     "translateCandidateResult.title": "翻译候选结果",
     "translationHoverSwitch.title": "悬停翻译开关",
     "translateSwitchLang.title": "切换目标语言进行翻译",
+    "translateDetectLang.title": "重设检测语言以翻译",
+    "translateSwpLang.title": "交换第一个和第二个目标语言",
     "translationSettings.title": "扩展设置",
     "switchFunctionTranslation.description": "函数翻译开关。例如：有一个函数名为“PostCreateReceipt”。它将被变更为“Post Create Receipt”，然后再翻译。",
     "serverDomain.description": "你可以根据需要填写速度更快的 Google 翻译域名。",

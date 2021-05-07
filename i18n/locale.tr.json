@@ -12,6 +12,12 @@
     "like.ok": "Evet",
     "like.no": "Hayır",
     "like.later": "Daha sonra hatırlat",
-    "switch.success": "Çeviri dili geçici olarak olarak değiştirildi ",
-    "switch.message": "Geçici olarak hangi dile geçmek istiyorsunuz?"
+    "switch.success": "Hedef dil değiştirildi ",
+    "switch.message": "Hangi hedef dili değiştirmek istiyorsunuz?",
+    "switch.tip": "Hedef dil",
+    "from.success": "Dili tespit edildi ",
+    "from.message": "Hangi dili algılamak istiyorsunuz?",
+    "from.tip": "Dili algılamak",
+    "swap.tip": "Hedef dili takas",
+    "swap.success": "Birinci ve ikinci hedef dil başarısını değiştirin."
 }

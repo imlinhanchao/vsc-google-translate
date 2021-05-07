@@ -12,6 +12,12 @@
     "like.ok": "Igen",
     "like.no": "Nem",
     "like.later": "Emlékeztess később",
-    "switch.success": "A fordítási nyelv átmenetileg váltott ",
-    "switch.message": "Melyik nyelvre szeretne átmenetileg váltani?"
+    "switch.success": "A célnyelv átkapcsolt ",
+    "switch.message": "Melyik célnyelvet szeretné váltani?",
+    "switch.tip": "Célnyelven",
+    "from.success": "A nyelvet átkapcsolták ",
+    "from.message": "Melyik érzékeli a nyelvet?",
+    "from.tip": "Nyelvfelismerés",
+    "swap.tip": "Swap célnyelv",
+    "swap.success": "Cserélje ki az első és a második célnyelvi sikert."
 }

@@ -12,6 +12,12 @@
     "like.ok": "はい",
     "like.no": "ノー",
     "like.later": "後で思い出させる",
-    "switch.success": "翻訳言語が一時的に切り替えられました ",
-    "switch.message": "一時的にどの言語に切り替えたいですか？"
+    "switch.success": "ターゲット言語はに切り替えられました ",
+    "switch.message": "どのターゲット言語を切り替えたいですか？",
+    "switch.tip": "目標とする言語",
+    "from.success": "言語を検出しました ",
+    "from.message": "どの検出された言語を切り替えたいですか？",
+    "from.tip": "言語を検出",
+    "swap.tip": "スワップターゲット言語",
+    "swap.success": "最初と2番目のターゲット言語の成功をスワップします。"
 }

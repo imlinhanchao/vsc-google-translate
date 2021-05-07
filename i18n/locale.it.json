@@ -12,8 +12,14 @@
     "like.ok": "sì",
     "like.no": "No",
     "like.later": "Ricordalo dopo",
-    "switch.success": "La lingua di traduzione è stata temporaneamente cambiata in ",
-    "switch.message": "In quale lingua vuoi passare temporaneamente?"
+    "switch.success": "La lingua di destinazione è stata passata a ",
+    "switch.message": "Quale lingua di destinazione vuoi cambiare?",
+    "switch.tip": "Lingua di destinazione",
+    "from.success": "Rileva il linguaggio è stato commutato a ",
+    "from.message": "Che rileva la lingua vuoi cambiare?",
+    "from.tip": "Rileva lingua",
+    "swap.tip": "Swap doeltaal.",
+    "swap.success": "Swap primo e secondo successo della lingua di destinazione."
 }
 
 

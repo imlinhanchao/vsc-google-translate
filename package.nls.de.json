@@ -6,6 +6,8 @@
     "translationHoverSwitch.title": "Hover-Schalter",
     "translateSwitchLang.title": "Wechseln Sie die zu übersetzende Zielsprache",
     "translationSettings.title": "die Einstellungen",
+    "translateDetectLang.title": "Setzen Sie die Erkennungssprache zurück, um zu übersetzen",
+    "translateSwpLang.title": "Tauschen die erste und zweite Zielsprache",
     "switchFunctionTranslation.description": "Funktionsschalter. Beispielsweise gibt es eine Funktion mit dem Namen \"PostCreateReceipt\". Ändern Sie es vor dem Übersetzen in \"Post Create Receipt\".",
     "serverDomain.description": "Sie können bei Bedarf eine schnellere Google-Übersetzungsdomain eingeben.",
     "firstLanguage.description": "Alle Sprachen wurden in diese Sprache übersetzt.",

@@ -5,6 +5,8 @@
     "translateCandidateResult.title": "Fordítási javaslat eredményei",
     "translationHoverSwitch.title": "Vigye a kapcsolót",
     "translateSwitchLang.title": "Váltás a célnyelvre a fordításhoz",
+    "translateDetectLang.title": "Állítsa vissza az észlelés nyelvét a lefordításhoz",
+    "translateSwpLang.title": "Cserélje ki az első és a második célnyelvet",
     "translationSettings.title": "Beállítások",
     "switchFunctionTranslation.description": "Funkció kapcsoló. Például van egy \"PostCreateReceipt\" nevű funkció. A fordítás előtt változtassa meg \"Post Create Receipt\" elemre.",
     "serverDomain.description": "Szükség szerint megadhat egy gyorsabb Google fordítási domaint.",

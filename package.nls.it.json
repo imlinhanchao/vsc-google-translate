@@ -5,6 +5,8 @@
     "translateCandidateResult.title": "Risultati dei suggerimenti di traduzione",
     "translationHoverSwitch.title": "Interruttore al passaggio del mouse",
     "translateSwitchLang.title": "Cambia la lingua di destinazione da tradurre",
+    "translateDetectLang.title": "Ripristina la lingua rileva per tradurre",
+    "translateSwpLang.title": "Scambia il primo e il secondo linguaggio di destinazione",
     "translationSettings.title": "impostazioni",
     "switchFunctionTranslation.description": "Interruttore di funzione. Ad esempio, esiste una funzione denominata \"PostCreateReceipt\". Modificalo in \"Posta crea ricevuta\" prima della traduzione.",
     "serverDomain.description": "Puoi inserire un dominio di traduzione Google più veloce, se necessario.",

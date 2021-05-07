@@ -12,6 +12,12 @@
     "like.ok": "Oui",
     "like.no": "Non",
     "like.later": "Rappeler plus tard",
-    "switch.success": "La langue de traduction a été temporairement basculée sur ",
-    "switch.message": "Dans quelle langue souhaitez-vous basculer temporairement?"
+    "switch.success": "La langue cible a été commutée vers ",
+    "switch.message": "Quelle langue cible voulez-vous basculer?",
+    "switch.tip": "Langue cible",
+    "from.success": "Détecter la langue a été commuté à ",
+    "from.message": "Quelle langue détecte voulez-vous basculer?",
+    "from.tip": "Détecter la langue",
+    "swap.tip": "Échanger la langue cible",
+    "swap.success": "Échanger des premier et seconde succès de la langue cible."
 }
