@@ -12,7 +12,7 @@
         "Japanese",
         "Korean"
     ],
-    "version": "1.2.1",
+    "version": "1.2.2",
     "repository": "https://github.com/imlinhanchao/vsc-google-translate",
     "engines": {
         "vscode": "^1.30.0"
@@ -139,6 +139,11 @@
                     "type": "number",
                     "default": "20",
                     "description": "%maxSizeOfResult.description%"
+                },
+                "google-translate.noticeOnlyError": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "%noticeOnlyError.description%"
                 }
             }
         }

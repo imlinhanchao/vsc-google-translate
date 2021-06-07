@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.2.2] - 2021-06-07
+- Added option to reduce the message box.
+
 ## [1.2.1] - 2021-05-07
 - Update switch target change language to save in setting.
 - Added detect language setting command.

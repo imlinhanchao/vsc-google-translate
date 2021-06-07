@@ -13,5 +13,6 @@
     "firstLanguage.description": "Alle Sprachen wurden in diese Sprache übersetzt.",
     "secondLanguage.description": "Wenn der zu übersetzende Inhalt eine Erstsprache ist, wird er in diese Sprache übersetzt.",
     "maxSizeOfResult.description": "Die maximale Länge des Ergebnisses, das in der Statusleiste und im Meldungsfeld angezeigt wird. Wenn diese Länge überschritten wird, wird sie durch eine Ellipse ersetzt.",
+    "noticeOnlyError.description": "Reduzieren Sie das Meldungsfeld und erinnern Sie nur an die Fehlermeldung.",
     "firstLanguage.default": "de"
 }

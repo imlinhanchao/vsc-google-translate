@@ -41,6 +41,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.2.2
+1. Added option to reduce the message box.
+
 ### 1.2.1
 1. Update switch target change language to save in setting.
 2. Added detect language setting command.

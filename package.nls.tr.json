@@ -13,5 +13,6 @@
     "firstLanguage.description": "Tüm diller bu dile çevrildi.",
     "secondLanguage.description": "Çevrilecek içerik birinci dil ise, o dile çevrilecektir.",
     "maxSizeOfResult.description": "Durum çubuğunda ve mesaj kutusunda görüntülenen sonucun maksimum uzunluğu. Bu uzunluğu aşarsa, yerini bir üç nokta alır.",
+    "noticeOnlyError.description": "Mesaj kutusunu azaltın ve hata mesajını yalnızca hatırlatın.",
     "firstLanguage.default": "tr"
 }

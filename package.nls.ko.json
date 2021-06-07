@@ -13,5 +13,6 @@
     "firstLanguage.description": "모든 언어가 해당 언어로 번역되었습니다.",
     "secondLanguage.description": "번역 할 내용이 모국어 인 경우 해당 언어로 번역됩니다.",
     "maxSizeOfResult.description": "상태 표시 줄과 메시지 상자에 표시되는 결과의 최대 길이이 길이를 초과하면 줄임표로 바뀝니다.",
+    "noticeOnlyError.description": "메시지 상자를 줄이고 오류 메시지 만 상기시켜줍니다.",
     "firstLanguage.default": "ko"
 }

@@ -11,6 +11,7 @@ let currentWord = {
 };
 
 let maxSize = vscode.workspace.getConfiguration().get('google-translate.maxSizeOfResult');
+let showMsg = vscode.workspace.getConfiguration().get('google-translate.noticeOnlyError');
 let langFrom;
 let hoverOpen = false;
 let usetimes = 0;
@@ -79,6 +80,10 @@ function getExecCommand() {
     }
     
     return `${cmd} https://marketplace.visualstudio.com/items?itemName=hancel.google-translate`
+}
+
+function showMessgae(message, error) {
+    if(error || !showMsg) vscode.window.showInformationMessage(message);
 }
 
 function noticeComment() {
@@ -162,7 +167,7 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
         candidate = trans.candidate
         noticeComment();
     } catch (error) {
-        return vscode.window.showInformationMessage(error.message);
+        return showMessgae(error.message, true);
     }
 
     currentWord = { word, text, candidate };
@@ -173,7 +178,7 @@ let tranDisposable = vscode.commands.registerCommand('translates.translates', as
     barItem.word.text = `${text.trim()}: ${word.trim()}`;
     barItem.word.command = 'translates.clipboard'
     
-    vscode.window.showInformationMessage(`${text}: ${word}`);
+    showMessgae(`${text}: ${word}`);
     
     candidate.length ? barItem.candidate.show() : barItem.candidate.hide();
     barItem.candidate.text = `$(ellipsis)`
@@ -185,7 +190,7 @@ let switchDisposable = vscode.commands.registerCommand('translates.hover', async
     context.globalState.update('hover', hoverOpen);
     barItem.hover.tooltip = !hoverOpen ? locale['on.tooltip'] : locale['off.tooltip'];
     barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? locale['on.text'] : locale['off.text']}`;
-    vscode.window.showInformationMessage(hoverOpen ? locale["hoverOn.message"] : locale["hoverOff.message"]);
+    showMessgae(hoverOpen ? locale["hoverOn.message"] : locale["hoverOff.message"]);
 });
 
 let settingsDisposable = vscode.commands.registerCommand('translates.settings', async function () {
@@ -204,7 +209,7 @@ let switchLangDisposable = vscode.commands.registerCommand('translates.switch', 
             };
             barItem.switchTo.text = langTo;
             vscode.workspace.getConfiguration().update('google-translate.firstLanguage', langTo, true)
-            vscode.window.showInformationMessage(locale['switch.success'] + (val || vscode.workspace.getConfiguration().get('google-translate.firstLanguage')));
+            showMessgae(locale['switch.success'] + (val || vscode.workspace.getConfiguration().get('google-translate.firstLanguage')));
         });
 });
 
@@ -220,7 +225,7 @@ let fromLangDisposable = vscode.commands.registerCommand('translates.detect', as
             };
             context.globalState.update('fromLang', langFrom);
             barItem.switchFrom.text = langFrom;
-            vscode.window.showInformationMessage(locale['from.success'] + langFrom);
+            showMessgae(locale['from.success'] + langFrom);
         });
 });
 
@@ -230,7 +235,7 @@ let swapLangDisposable = vscode.commands.registerCommand('translates.swap', asyn
     barItem.switchTo.text = secondLang;
     vscode.workspace.getConfiguration().update('google-translate.firstLanguage', secondLang, true)
     vscode.workspace.getConfiguration().update('google-translate.secondLanguage', firstLang, true)
-    vscode.window.showInformationMessage(locale['swap.success']);
+    showMessgae(locale['swap.success']);
 });
 
 let copyDisposable = vscode.commands.registerCommand('translates.clipboard', async function () {
@@ -253,7 +258,7 @@ let copyDisposable = vscode.commands.registerCommand('translates.clipboard', asy
         clipboardy.writeSync(word);
         vscode.window.showInformationMessage(locale["clipboard.message"]);
     } catch (error) {
-        return vscode.window.showInformationMessage(error.message);
+        return showMessgae(error.message, true);
     }
 });
 
@@ -296,13 +301,13 @@ let replaceDisposable = vscode.commands.registerCommand('translates.replace', as
             })
             
         } catch (error) {
-            return vscode.window.showInformationMessage(error.message);
+            return showMessgae(error.message, true);
         }
     }
 
-    if (length == 1) vscode.window.showInformationMessage(`${text.trim().slice(0, maxSize).trim()
+    if (length == 1) showMessgae(`${text.trim().slice(0, maxSize).trim()
         + (text.length > maxSize ? '... ' : '')} => ${word.trim().slice(0, maxSize).trim() + (word.length > maxSize ? '... ' : '')}`);
-    else vscode.window.showInformationMessage(locale['replace.message'])
+    else showMessgae(locale['replace.message'])
 });
 
 let canDisposable = vscode.commands.registerCommand('translates.candidate', async function () {
@@ -331,7 +336,7 @@ let canDisposable = vscode.commands.registerCommand('translates.candidate', asyn
             barItem.candidate.show()
         }
     } catch (error) {
-        return vscode.window.showInformationMessage(error.message);
+        return showMessgae(error.message, true);
     }
 });
 
@@ -342,6 +347,9 @@ vscode.workspace.onDidChangeConfiguration(function(event) {
     }
     if (event.affectsConfiguration('google-translate.maxSizeOfResult')) {
         maxSize = vscode.workspace.getConfiguration().get('google-translate.maxSizeOfResult');
+    }
+    if (event.affectsConfiguration('google-translate.noticeOnlyError')) {
+        showMsg = vscode.workspace.getConfiguration().get('google-translate.noticeOnlyError');
     }
 });
 

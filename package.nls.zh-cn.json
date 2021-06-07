@@ -13,5 +13,6 @@
     "firstLanguage.description": "所有的语言都将被翻译为这个语言。",
     "secondLanguage.description": "如果是第一语言，他将会被翻译成这个语言。",
     "maxSizeOfResult.description": "显示于状态栏与消息框的结果最大长度，超过这个长度将以省略号代替。",
+    "noticeOnlyError.description": "减少消息框，只提醒错误消息。",
     "firstLanguage.default": "zh-cn"
 }
