@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.2.3] - 2021-06-22
+- Update the clipboard Use the vscode clipboard api.
+
 ## [1.2.2] - 2021-06-07
 - Added option to reduce the message box.
 
