@@ -41,6 +41,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.2.3
+1. Update the clipboard Use the vscode clipboard api.
+
 ### 1.2.2
 1. Added option to reduce the message box.
 

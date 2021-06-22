@@ -1,5 +1,4 @@
 const vscode = require('vscode');
-const clipboardy = require('clipboardy');
 const translate = require('./tranlate');
 const locale = require('../i18n')();
 const open = require('child_process');
@@ -255,7 +254,7 @@ let copyDisposable = vscode.commands.registerCommand('translates.clipboard', asy
         } else {
             word = currentWord.word;
         }
-        clipboardy.writeSync(word);
+        vscode.env.clipboard.writeText(word);
         vscode.window.showInformationMessage(locale["clipboard.message"]);
     } catch (error) {
         return showMessgae(error.message, true);
@@ -330,7 +329,7 @@ let canDisposable = vscode.commands.registerCommand('translates.candidate', asyn
         const chosen = await vscode.window.showQuickPick(items);
         if (chosen) {
             currentWord.word = chosen.label
-            clipboardy.writeSync(currentWord.word);
+            vscode.env.clipboard.writeText(currentWord.word);
             vscode.window.showInformationMessage(locale["clipboard.message"]);
             barItem.word.text = `${currentWord.text}: ${currentWord.word}`;
             barItem.candidate.show()

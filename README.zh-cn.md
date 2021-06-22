@@ -43,6 +43,9 @@ sudo yum install xsel
 
 ## Release Notes
 
+### 1.2.3
+1. 更新剪贴板使用 VSCode Clipboard API。
+
 ### 1.2.2
 1. 添加一个可选项，减少消息框提示。
 
