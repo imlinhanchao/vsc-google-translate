@@ -24,21 +24,6 @@ Based on [Google Translate](https://translate.google.cn). No API Key translation
    
 > Tips: Shortcuts can be modified by going to VSCode's Keyboard Shortcuts (`Ctrl + K Ctrl + S`)
 
-## Notice
-
-Linux systems must have **xsel** installed to support the copy result to clipboard. (Thanks [hawk hu](https://github.com/hawkhu)）
-
-Ubuntu：
-```bash
-sudo apt install xsel
-```
-
-CentOS
-```bash
-sudo yum install epel-release.noarch
-sudo yum install xsel
-```
-
 ## Release Notes
 
 ### 1.2.3

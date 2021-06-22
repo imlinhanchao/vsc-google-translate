@@ -26,21 +26,6 @@
    
 > Tips: 快捷键修改可以到 VSCode 的键盘快捷方式 ( `Ctrl + K Ctrl + S` ) 修改。
 
-## Notice
-
-Linux 用户须安装 xsel，用于支援剪贴板功能。（感谢 [hawk hu](https://github.com/hawkhu) 的提醒）
-
-Ubuntu：
-```bash
-sudo apt install xsel
-```
-
-CentOS
-```bash
-sudo yum install epel-release.noarch
-sudo yum install xsel
-```
-
 ## Release Notes
 
 ### 1.2.3
