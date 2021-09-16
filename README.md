@@ -26,6 +26,9 @@ Based on [Google Translate](https://translate.google.cn). No API Key translation
 
 ## Release Notes
 
+### 1.2.4
+1. Update translate module use to `@imlinhanchao/google-translate-api`.
+
 ### 1.2.3
 1. Update the clipboard Use the vscode clipboard api.
 

@@ -28,6 +28,9 @@
 
 ## Release Notes
 
+### 1.2.4
+1. 更新翻译模块为 `@imlinhanchao/google-translate-api`.
+
 ### 1.2.3
 1. 更新剪贴板使用 VSCode Clipboard API。
 
