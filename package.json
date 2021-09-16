@@ -160,7 +160,7 @@
         "vscode": "^1.1.25"
     },
     "dependencies": {
-        "got": "^9.6.0",
+        "@imlinhanchao/google-translate-api": "^8.0.0",
         "vscode-nls": "^4.1.1"
     }
 }
