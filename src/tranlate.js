@@ -68,3 +68,4 @@ module.exports = async (word, l, from='auto') => {
 };
 
 module.exports.getConfig = getConfig;
+module.exports.languages = translator.languages;
