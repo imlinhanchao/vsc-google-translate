@@ -28,6 +28,9 @@
 
 ## Release Notes
 
+### 1.2.5
+1. 添加了一個快速選擇框用來選擇翻譯語言。
+
 ### 1.2.4
 1. 更新翻譯模塊為 `@imlinhanchao/google-translate-api`.
 

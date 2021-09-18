@@ -27,6 +27,8 @@
 > Tips: 快捷键修改可以到 VSCode 的键盘快捷方式 ( `Ctrl + K Ctrl + S` ) 修改。
 
 ## Release Notes
+### 1.2.5
+1. 添加了一个快速选择框用来选择翻译语言。
 
 ### 1.2.4
 1. 更新翻译模块为 `@imlinhanchao/google-translate-api`.

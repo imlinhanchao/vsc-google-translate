@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.2.5] - 2021-09-18
+1. Added a Quick pick box to selected translate language.
+
 ## [1.2.4] - 2021-09-16
 - Update translate module use to `@imlinhanchao/google-translate-api`.
 
