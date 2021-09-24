@@ -42,11 +42,13 @@ function initSetting(cxt) {
     hoverOpen = cxt.globalState.get('hover') || false;
     usetimes = cxt.globalState.get('usetimes') || 0;
     langFrom = cxt.globalState.get('fromLang') || 'auto'
+    if (!translate.languages.isSupported(langFrom)) langFrom = 'auto';
     
     cxt.globalState.update('hover', hoverOpen);
 
+    let firstLang = vscode.workspace.getConfiguration().get('google-translate.firstLanguage');
     barItem.switchTo.tooltip = locale['switch.tip'];
-    barItem.switchTo.text = locale[vscode.workspace.getConfiguration().get('google-translate.firstLanguage')];
+    barItem.switchTo.text = locale[firstLang] || firstLang;
     barItem.switchTo.command = 'translates.switch'
     barItem.switchTo.show();
 
@@ -56,7 +58,7 @@ function initSetting(cxt) {
     barItem.switchHr.show();
 
     barItem.switchFrom.tooltip = locale['from.tip'];
-    barItem.switchFrom.text = locale[langFrom];
+    barItem.switchFrom.text = locale[langFrom] || langFrom;
     barItem.switchFrom.command = 'translates.detect'
     barItem.switchFrom.show();
 
@@ -205,7 +207,7 @@ let switchLangDisposable = vscode.commands.registerCommand('translates.switch', 
             word: '',
             candidate: []
         };
-        barItem.switchTo.text = locale[langTo];
+        barItem.switchTo.text = locale[langTo] || langTo;
         vscode.workspace.getConfiguration().update('google-translate.firstLanguage', langTo, true)
         showMessgae(locale['switch.success'] + (val || vscode.workspace.getConfiguration().get('google-translate.firstLanguage')));
     })
@@ -221,7 +223,7 @@ let fromLangDisposable = vscode.commands.registerCommand('translates.detect', as
             candidate: []
         };
         context.globalState.update('fromLang', langFrom);
-        barItem.switchFrom.text = locale[langFrom];
+        barItem.switchFrom.text = locale[langFrom] || langFrom;
         showMessgae(locale['from.success'] + val.label);
     })
 });
@@ -229,7 +231,7 @@ let fromLangDisposable = vscode.commands.registerCommand('translates.detect', as
 let swapLangDisposable = vscode.commands.registerCommand('translates.swap', async function () {
     let firstLang = vscode.workspace.getConfiguration().get('google-translate.firstLanguage');
     let secondLang = vscode.workspace.getConfiguration().get('google-translate.secondLanguage');
-    barItem.switchTo.text = locale[secondLang];
+    barItem.switchTo.text = locale[secondLang] || secondLang;
     vscode.workspace.getConfiguration().update('google-translate.firstLanguage', secondLang, true)
     vscode.workspace.getConfiguration().update('google-translate.secondLanguage', firstLang, true)
     showMessgae(locale['swap.success']);

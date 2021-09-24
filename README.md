@@ -26,6 +26,9 @@ Based on [Google Translate](https://translate.google.cn). No API Key translation
 
 ## Release Notes
 
+### 1.2.6
+1. Fix the incompatibility issue of the wrong source translate language that has been set. 
+
 ### 1.2.5
 1. Added a Quick pick box to selected translate language.
 
