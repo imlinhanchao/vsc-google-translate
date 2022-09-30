@@ -9,6 +9,7 @@ async function translate(text, lang) {
         let result = await translator(text, {
             from: lang.from == 'auto' ? undefined : lang.from,
             to: lang.to,
+            url: config['google-translate.serverDomain'].replace(/\/$/, '')
         })
 
         return {

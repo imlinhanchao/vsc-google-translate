@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+## [1.2.6] - 2022-10-01
+- Fixed Translate.Google.cn invalidation. 
+
 ## [1.2.6] - 2021-09-24
 - Fix the incompatibility issue of the wrong source translate language that has been set. 
 

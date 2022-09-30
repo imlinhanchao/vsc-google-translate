@@ -26,6 +26,9 @@ Based on [Google Translate](https://translate.google.cn). No API Key translation
 
 ## Release Notes
 
+### 1.2.7
+1. Fixed Translate.Google.cn invalidation. 
+
 ### 1.2.6
 1. Fix the incompatibility issue of the wrong source translate language that has been set. 
 
