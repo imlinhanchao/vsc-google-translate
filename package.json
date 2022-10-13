@@ -144,6 +144,16 @@
                     "type": "boolean",
                     "default": false,
                     "description": "%noticeOnlyError.description%"
+                },
+                "google-translate.useGoogleCloudAPIs": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "%useGoogleCloudAPIs.description%"
+                },
+                "google-translate.googleCloudAPIsKey": {
+                    "type": "string",
+                    "default": "Replace With Your Own Google Cloud APIs key",
+                    "description": "%googleCloudAPIsKey.description%"
                 }
             }
         }

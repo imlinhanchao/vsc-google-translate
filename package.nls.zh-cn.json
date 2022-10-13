@@ -14,6 +14,8 @@
     "secondLanguage.description": "如果是第一语言，他将会被翻译成这个语言。",
     "maxSizeOfResult.description": "显示于状态栏与消息框的结果最大长度，超过这个长度将以省略号代替。",
     "noticeOnlyError.description": "减少消息框，只提醒错误消息。",
+    "useGoogleCloudAPIs.description": "使用Google Cloud APIs翻译，可以提高翻译质量。",
+    "googleCloudAPIsKey.description": "使用Google Cloud APIs翻译需要设置key，key申请参考https://cloud.google.com/docs/authentication/api-keys",
     "firstLanguage.default": "zh-cn",
     "translate.domain": "https://t.hancel.org"
 }
