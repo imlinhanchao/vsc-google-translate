@@ -15,5 +15,5 @@
     "maxSizeOfResult.description": "显示于状态栏与消息框的结果最大长度，超过这个长度将以省略号代替。",
     "noticeOnlyError.description": "减少消息框，只提醒错误消息。",
     "firstLanguage.default": "zh-cn",
-    "translate.domain": "https://t.hancel.org"
+    "translate.domain": "https://translate.amz.wang"
 }
