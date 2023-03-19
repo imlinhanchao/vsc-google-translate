@@ -1,7 +1,10 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
-## [1.2.6] - 2022-10-01
+## [1.2.8] - 2022-03-19
+- Update the translate mirror to China .
+
+## [1.2.7] - 2022-10-01
 - Fixed Translate.Google.cn invalidation. 
 
 ## [1.2.6] - 2021-09-24

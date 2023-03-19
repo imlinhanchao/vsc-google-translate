@@ -20,9 +20,9 @@ let barItem = {
     word: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left),
     candidate: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left),
     hover: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
-    switchFrom: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
-    switchHr: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
     switchTo: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
+    switchHr: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
+    switchFrom: vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right),
 }
 
 let context = null;
@@ -47,20 +47,21 @@ function initSetting(cxt) {
     cxt.globalState.update('hover', hoverOpen);
 
     let firstLang = vscode.workspace.getConfiguration().get('google-translate.firstLanguage');
-    barItem.switchTo.tooltip = locale['switch.tip'];
-    barItem.switchTo.text = locale[firstLang] || firstLang;
-    barItem.switchTo.command = 'translates.switch'
-    barItem.switchTo.show();
-
-    barItem.switchHr.tooltip = locale['swap.tip'];
-    barItem.switchHr.text = '$(arrow-right)';
-    barItem.switchHr.command = 'translates.swap';
-    barItem.switchHr.show();
 
     barItem.switchFrom.tooltip = locale['from.tip'];
     barItem.switchFrom.text = locale[langFrom] || langFrom;
     barItem.switchFrom.command = 'translates.detect'
     barItem.switchFrom.show();
+
+    barItem.switchHr.tooltip = locale['swap.tip'];
+    barItem.switchHr.text = '$(arrow-right)';
+    barItem.switchHr.command = 'translates.swap';
+    barItem.switchHr.show();
+    
+    barItem.switchTo.tooltip = locale['switch.tip'];
+    barItem.switchTo.text = locale[firstLang] || firstLang;
+    barItem.switchTo.command = 'translates.switch'
+    barItem.switchTo.show();
 
     barItem.hover.tooltip = !hoverOpen ? locale['on.tooltip'] : locale['off.tooltip'];
     barItem.hover.text = `$(${(hoverOpen ? 'eye-watch' : 'eye-closed')}) ${hoverOpen ? locale['on.text'] : locale['off.text']}`;

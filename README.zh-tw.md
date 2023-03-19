@@ -28,6 +28,9 @@
 
 ## Release Notes
 
+### 1.2.8
+1. 更新中國區翻譯鏡像。
+
 ### 1.2.7
 1. 修復 Translate.Google.cn 失效的問題。
 

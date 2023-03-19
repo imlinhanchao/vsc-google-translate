@@ -25,6 +25,8 @@ Based on [Google Translate](https://translate.google.cn). No API Key translation
 > Tips: Shortcuts can be modified by going to VSCode's Keyboard Shortcuts (`Ctrl + K Ctrl + S`)
 
 ## Release Notes
+### 1.2.8
+1. Update the translate mirror to China .
 
 ### 1.2.7
 1. Fixed Translate.Google.cn invalidation. 

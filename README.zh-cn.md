@@ -27,6 +27,9 @@
 > Tips: 快捷键修改可以到 VSCode 的键盘快捷方式 ( `Ctrl + K Ctrl + S` ) 修改。
 
 ## Release Notes
+### 1.2.8
+1. 更新中国区翻译镜像。
+
 ### 1.2.7
 1. 修复 Translate.Google.cn 失效的问题。
 
