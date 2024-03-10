@@ -14,5 +14,6 @@
     "secondLanguage.description": "Wenn der zu übersetzende Inhalt eine Erstsprache ist, wird er in diese Sprache übersetzt.",
     "maxSizeOfResult.description": "Die maximale Länge des Ergebnisses, das in der Statusleiste und im Meldungsfeld angezeigt wird. Wenn diese Länge überschritten wird, wird sie durch eine Ellipse ersetzt.",
     "noticeOnlyError.description": "Reduzieren Sie das Meldungsfeld und erinnern Sie nur an die Fehlermeldung.",
-    "firstLanguage.default": "de"
+    "firstLanguage.default": "de",
+    "proxy.description": "Verbindung zu Google übersetzt über HTTP-Proxy."
 }

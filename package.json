@@ -144,6 +144,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "%noticeOnlyError.description%"
+                },
+                "google-translate.httpProxy": {
+                    "type": "string",
+                    "default": "",
+                    "description": "%proxy.description%"
                 }
             }
         }
@@ -161,6 +166,7 @@
     },
     "dependencies": {
         "@imlinhanchao/google-translate-api": "^8.0.1",
+        "https-proxy-agent": "^7.0.4",
         "vscode-nls": "^4.1.1"
     }
 }

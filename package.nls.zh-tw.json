@@ -14,5 +14,6 @@
     "secondLanguage.description": "如果是第壹語言，他將會被翻譯成這個語言。",
     "maxSizeOfResult.description": "顯示於狀態欄與消息框的結果最大長度，超過這個長度將以省略號代替。",
     "noticeOnlyError.description": "減少消息框，只提醒錯誤消息。",
-    "firstLanguage.default": "zh-tw"
+    "firstLanguage.default": "zh-tw",
+    "proxy.description": "通過 HTTP 代理連接到 Google 翻譯。"
 }

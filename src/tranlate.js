@@ -1,15 +1,19 @@
 const vscode = require('vscode');
 const translator = require('@imlinhanchao/google-translate-api');
+const { HttpsProxyAgent } = require('https-proxy-agent');
 
 let config = {};
 
 
 async function translate(text, lang) {
     try{
+        let agent = config['google-translate.httpProxy'] ? new HttpsProxyAgent(config['google-translate.httpProxy']) : undefined;
         let result = await translator(text, {
             from: lang.from == 'auto' ? undefined : lang.from,
             to: lang.to,
             url: config['google-translate.serverDomain'].replace(/\/$/, '')
+        }, {
+            agent
         })
 
         return {
@@ -29,6 +33,7 @@ function getConfig() {
         'google-translate.serverDomain',
         'google-translate.firstLanguage',
         'google-translate.secondLanguage',
+        'google-translate.httpProxy',
     ];
     let values = {};
     keys.forEach(k => values[k] = vscode.workspace.getConfiguration().get(k))

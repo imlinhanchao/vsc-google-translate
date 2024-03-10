@@ -14,5 +14,6 @@
     "secondLanguage.description": "Se il contenuto da tradurre è una prima lingua, verrà tradotto in quella lingua.",
     "maxSizeOfResult.description": "La lunghezza massima del risultato visualizzata nella barra di stato e nella finestra di messaggio. Se supera questa lunghezza, verrà sostituito da un'ellissi.",
     "noticeOnlyError.description": "Riduci la casella dei messaggi e ricorda solo il messaggio di errore.",
-    "firstLanguage.default": "it"
+    "firstLanguage.default": "it",
+    "proxy.description": "Connettiti a Google Translate tramite proxy HTTP."
 }

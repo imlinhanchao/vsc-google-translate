@@ -14,5 +14,6 @@
     "secondLanguage.description": "Ако съдържанието, което трябва да бъде преведено, е първи език, той ще бъде преведен на този език.",
     "maxSizeOfResult.description": "Максималната дължина на резултата, показана в лентата на състоянието и полето за съобщения. Ако надвиши тази дължина, тя ще бъде заменена с елипса.",
     "noticeOnlyError.description": "Намалете полето за съобщения и напомнете само на съобщението за грешка.",
-    "firstLanguage.default": "bg"
+    "firstLanguage.default": "bg",
+    "proxy.description": "Свържете се с Google Translate чрез HTTP Proxy."
 }

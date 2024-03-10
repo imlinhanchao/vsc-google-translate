@@ -15,5 +15,6 @@
     "maxSizeOfResult.description": "显示于状态栏与消息框的结果最大长度，超过这个长度将以省略号代替。",
     "noticeOnlyError.description": "减少消息框，只提醒错误消息。",
     "firstLanguage.default": "zh-cn",
-    "translate.domain": "https://translate.amz.wang"
+    "translate.domain": "https://translate.google.com",
+    "proxy.description": "通过 HTTP 代理连接到 Google 翻译。"
 }

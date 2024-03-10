@@ -14,5 +14,6 @@
     "secondLanguage.description": "Ha a lefordítandó tartalom első nyelv, akkor lefordítják erre a nyelvre.",
     "maxSizeOfResult.description": "Az eredmény sávjában és az üzenet mezőben megjelenített maximális hossz. Ha meghaladja ezt a hosszúságot, azt ellipszis váltja fel.",
     "noticeOnlyError.description": "Csökkentse az üzenetdobozot, és csak emlékeztesse a hibaüzenetet.",
-    "firstLanguage.default": "hu"
+    "firstLanguage.default": "hu",
+    "proxy.description": "Csatlakozzon a Google Translate -hoz a HTTP Proxy segítségével."
 }

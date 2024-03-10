@@ -14,7 +14,8 @@
     "secondLanguage.description": "それが第一言語である場合、彼はこの言語に翻訳されます",
     "maxSizeOfResult.description": "ステータスバーとメッセージボックスに表示される結果の最大長。この長さを超えると、省略記号に置き換えられます。",
     "noticeOnlyError.description": "メッセージボックスを下げ、エラーメッセージを送受信します。",
-    "firstLanguage.default": "ja"
+    "firstLanguage.default": "ja",
+    "proxy.description": "HTTPプロキシを介してGoogle翻訳に接続します。"
 }
 
 
