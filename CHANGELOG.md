@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to the "Google Translate" extension will be documented in this file.
 
+
+## [1.2.9] - 2022-03-10
+1. Support to connect to Google Translate via http proxy.
+2. Fix hover link domain and switch language notice.
+
 ## [1.2.8] - 2022-03-19
 - Update the translate mirror to China .
 
