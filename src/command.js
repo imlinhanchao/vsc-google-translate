@@ -141,7 +141,7 @@ let hoverDisposable = vscode.languages.registerHoverProvider({scheme: 'file'}, {
                 let trans = await translate(editor.document.getText(selection), langTo);
                 if (!trans) return;
                 let word = trans.word    
-                let pre = `**[Google Translate](https://translate.google.cn/?sl=auto&tl=${trans.lang.to}&text=${encodeURI(trans.text)})**\n\n`;
+                let pre = `**[Google Translate](https://translate.google.com/?sl=auto&tl=${trans.lang.to}&text=${encodeURI(trans.text)})**\n\n`;
                 noticeComment();
                 return new vscode.Hover(pre + word.replace(/\r\n/g, '  \r\n'));
             } catch (error) {
@@ -210,7 +210,7 @@ let switchLangDisposable = vscode.commands.registerCommand('translates.switch', 
         };
         barItem.switchTo.text = locale[langTo] || langTo;
         vscode.workspace.getConfiguration().update('google-translate.firstLanguage', langTo, true)
-        showMessgae(locale['switch.success'] + (val || vscode.workspace.getConfiguration().get('google-translate.firstLanguage')));
+        showMessgae(locale['switch.success'] + (barItem.switchTo.text || vscode.workspace.getConfiguration().get('google-translate.firstLanguage')));
     })
 });
 
